@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+org.eclipse.debug.ui.consoleBackground=245,245,245
+org.eclipse.debug.ui.errorColor=41,95,148
+org.eclipse.debug.ui.inColor=88,88,88
+org.eclipse.debug.ui.outColor=88,88,88

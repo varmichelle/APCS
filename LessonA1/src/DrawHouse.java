@@ -21,77 +21,34 @@ public class DrawHouse {
 	}
 	
 	// the draw method draws a house 
-	public static void draw(){
-		// draw the frame of the house
-		/*
-		myPencil.forward(100);
-		myPencil.turnLeft();
-		myPencil.forward(100);
-		myPencil.turnLeft();
-		myPencil.forward(100);
-		myPencil.turnLeft();
-		myPencil.forward(100);
-		myPencil.turnRight();
-		// draw the door
-		myPencil.turnRight();
-		myPencil.forward(60);
-		myPencil.turnLeft();
-		myPencil.turnRight();
-		// draw the roof
-		myPencil.turnRight();
-		myPencil.forward(50);
-		myPencil.turnRight();
-		myPencil.forward(20);
-		myPencil.turnRight();
-		myPencil.forward(50);
-		// draw the windows
+	public void draw(){
+		// draws the frame of the house
 		myPencil.up();
-		myPencil.move(-100,100);
+		myPencil.move(0,-50);
 		myPencil.down();
-		myPencil.move(-50, 150);
-		myPencil.move(0, 100);
-		myPencil.up();
-		myPencil.move(-90, 60);
-		myPencil.down();
-		myPencil.setDirection(90);
-		myPencil.forward(25);
-		myPencil.turnRight();
-		myPencil.forward(15);
-		myPencil.turnRight();
-		myPencil.forward(25);
-		myPencil.turnRight();
-		myPencil.forward(15);
-		myPencil.up();
-		myPencil.move(-10, 60);
-		myPencil.down();
-		myPencil.setDirection(90);
-		myPencil.forward(25);
-		myPencil.turnLeft();
-		myPencil.forward(15);
-		myPencil.turnLeft();
-		myPencil.forward(25);
-		myPencil.turnLeft();
-		myPencil.forward(15);
-		*/
-		myPencil.drawCircle(80);
-		myPencil.up();
-		myPencil.home();
-		myPencil.forward(80);
-		myPencil.down();
-		myPencil.setDirection(0);
-		myPencil.forward(80);
-		myPencil.turnRight(90);
-		myPencil.forward(160);
-		myPencil.turnRight(90);
-		myPencil.forward(160);
-		myPencil.turnRight(90);
-		myPencil.forward(160);
-		myPencil.turnRight(90);
-		myPencil.forward(80);
-		myPencil.up();
-		myPencil.move(0, 0);
-		myPencil.down();
-		myPencil.drawCircle(80 * Math.sqrt(2));
-	}
+		myPencil.drawRect(350,200);
 
+		// draws the roof
+		myPencil.up();
+		myPencil.move(175,50);
+		myPencil.down();
+		myPencil.move(0,160);
+		myPencil.move(-175,50);
+
+		// draws the windows
+		myPencil.up();
+		myPencil.move(70,0);
+		myPencil.down();
+		myPencil.drawRect(40,40);
+		myPencil.up();
+		myPencil.move(-70,0);
+		myPencil.down();
+		myPencil.drawRect(40,40);
+
+		// draws the door
+		myPencil.up();
+		myPencil.move(0,-115);
+		myPencil.down();
+		myPencil.drawRect(50,70);
+	}
 }

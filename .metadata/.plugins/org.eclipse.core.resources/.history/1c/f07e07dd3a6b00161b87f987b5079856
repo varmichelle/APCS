@@ -1,0 +1,12 @@
+
+public class test {
+
+	public static void main(String[] args) {
+		int i = 5;
+		double x = 6.5;
+		System.out.println((int) (x*i));
+		System.out.println((int) x * i);
+
+	}
+
+}

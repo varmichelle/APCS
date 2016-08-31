@@ -1,0 +1,55 @@
+/**
+ * 
+ * @author Michelle Li
+ * Period 1	
+ *
+ */
+
+public class Product {
+	
+	static String companyName, name;
+	static double cost, unitPrice, discount, unitSalePrice;
+	static int quantitySold;
+	
+	public Product() {
+		name = "";
+		companyName = "";
+		cost = 0;
+		unitPrice = 0; 
+		discount = 0;
+		unitSalePrice = 0;
+		quantitySold = 0;
+	}
+	
+	public Product(String name, double cost, double price, double discount, int quantity) {
+		Product.name = name;
+		Product.companyName = "";
+		Product.cost = cost;
+		Product.unitPrice = price;
+		Product.discount = discount;
+		Product.quantitySold = quantity;
+		Product.unitSalePrice = calculateSalePrice();
+		
+	}
+	
+	public Product(String name, double cost, double price, int quantity) {
+		Product.discount = 0;
+		Product.name = name;
+		Product.cost = cost;
+		Product.unitPrice = price;
+		Product.unitSalePrice = price;
+		Product.quantitySold = quantity;
+		
+	}
+	
+	private double calculateSalePrice() {
+		Product.unitSalePrice = Product.unitPrice * Product.discount / 100.0;
+		return Product.unitSalePrice;
+		
+	}
+	
+	private double unitProfit() {
+		return Product.unitPrice - Product.unitSalePrice;
+	}
+	
+}

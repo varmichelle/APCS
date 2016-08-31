@@ -22,9 +22,20 @@ public class CarDriver {
 		double gallons = scan.nextDouble();
 		car.fillUp(reading, gallons);
 		System.out.println();
-		System.out.println();
-		System.out.println("Miles per gallon: " + car.calculateMPG());
+		System.out.printf("Miles per gallon: %.2f",car.calculateMPG());
 		car.resetMPG();
+		System.out.println();
+		System.out.println();
+		System.out.println("Filling Station Visit: ");
+		System.out.print("odometer reading: ");
+		reading = scan.nextInt();
+		System.out.print("gallons to fill tank: ");
+		gallons = scan.nextDouble();
+		car.fillUp(reading, gallons);
+		System.out.println();
+		System.out.printf("Miles per gallon: %.2f",car.calculateMPG());
+		car.resetMPG();		
+		System.out.println();
 
 	}
 

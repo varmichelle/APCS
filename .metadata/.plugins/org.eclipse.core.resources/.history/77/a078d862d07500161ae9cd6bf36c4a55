@@ -1,0 +1,33 @@
+/**
+ * 
+ * @author Michelle Li
+ * Period 1
+ *
+ */
+public class Fraction {
+
+	private int numerator, denominator;
+	
+	public Fraction() {
+		numerator = 0;
+		denominator = 1;
+	}
+	
+	public Fraction(int n) {
+		numerator = n;
+		denominator = 1;
+	}
+	
+	public Fraction(int n, int d) {
+		numerator = n;
+		denominator = d;
+	}
+	
+	public Fraction(Fraction other) {
+		numerator = other.numerator;
+		denominator = other.denominator;
+	}
+	
+	
+
+}

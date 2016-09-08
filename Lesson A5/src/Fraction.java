@@ -1,0 +1,123 @@
+import java.math.BigInteger;
+
+/**
+ * 
+ * @author Michelle Li
+ * Period 1
+ *
+ */
+
+// class Fraction
+public class Fraction {
+
+	// instance variables to store the numerator and denominator of the fraction
+	private int numerator, denominator;
+	
+	// constructor that takes no paramaters and defaults to 0
+	public Fraction() {
+		numerator = 0;
+		denominator = 1;
+	}
+	
+	// constructor that initializes the fraction to the parameter value
+	public Fraction(int n) {
+		numerator = n;
+		denominator = 1;
+	}
+	
+	// constructor that initializes the numerator and denominator of fraction to the parameters
+	public Fraction(int n, int d) {
+		numerator = n;
+		denominator = d;
+	}
+	
+	// constructor that initializes the fraction to a given fraction
+	public Fraction(Fraction other) {
+		numerator = other.numerator;
+		denominator = other.denominator;
+	}
+	
+	// returns numerator
+	public int getNumerator() {
+		return numerator;
+	}
+	
+	// returns denominator
+	public int getDenominator() {
+		return denominator;
+	}
+	
+	// returns value of fraction
+	public double getValue() {
+		return numerator / (double) denominator;
+	}
+	
+	// set the numerator of the fraction to the parameter value
+	public void setNumerator(int n) {
+		numerator = n;
+	}
+	
+	// set the denominator of the fraction to the parameter value
+	public void setDenominator(int d) {
+		denominator = d;
+	}
+	
+	// set the fraction to the parameter 
+	public void setFraction(Fraction other) {
+		numerator = other.numerator;
+		denominator = other.denominator;
+	}
+	
+	// add a fraction object to the fraction
+	public Fraction add(Fraction other) {
+		Fraction f = new Fraction();
+		f.numerator = this.numerator * other.denominator + this.denominator * other.numerator;
+		f.denominator = this.denominator * other.denominator;
+		return f;
+	}
+	
+	// add an integer to the fraction
+	public Fraction add(int m) {
+		Fraction f = new Fraction();
+		f.numerator = this.numerator + this.denominator * m;
+		f.denominator = this.denominator;
+		return f;
+	}
+	
+	// multiply the current fraction by another fraction
+	public Fraction multiply(Fraction other) {
+		Fraction f = new Fraction();
+		f.numerator = this.numerator * other.numerator;
+		f.denominator = this.denominator * other.numerator;
+		return f;
+	}
+	
+	// multiply the fraction by an integer	
+	public Fraction multiply(int m) {
+		Fraction f = new Fraction();
+		f.numerator = this.numerator * m;
+		f.denominator = this.denominator;
+		return f;
+	}
+	
+	// reduce the fraction using Java gcf methods
+	public void reduce() {
+		// make sure denominator is positive
+		if (denominator < 0) {
+			numerator *= -1;
+			denominator *= -1;
+		}
+		// since MyMathLib doesn't seem to work, use Java's BigInteger gcd method and cast to int
+		BigInteger b1 = BigInteger.valueOf(numerator);
+		BigInteger b2 = BigInteger.valueOf(denominator);
+		BigInteger gcd = b1.gcd(b2);
+		int gcf = gcd.intValue();
+		numerator /= gcf;
+		denominator /= gcf;
+	}
+	
+	// return the fraction in string format
+	public String toString() {
+		return numerator + "/" + denominator;
+	}
+}

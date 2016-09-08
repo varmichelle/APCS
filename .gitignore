@@ -1,5 +1,20 @@
 .metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
 .recommenders
-.settings
-.classpath
+
+# Eclipse Core
 .project
+
+# External tool builders
+.externalToolBuilders/
+
+# Code Recommenders
+.recommenders/

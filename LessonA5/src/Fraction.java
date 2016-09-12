@@ -1,5 +1,3 @@
-import java.math.BigInteger;
-
 /**
  * 
  * @author Michelle Li
@@ -29,6 +27,7 @@ public class Fraction {
 	public Fraction(int n, int d) {
 		numerator = n;
 		denominator = d;
+                this.reduce();
 	}
 	
 	// constructor that initializes the fraction to a given fraction
@@ -73,6 +72,7 @@ public class Fraction {
 		Fraction f = new Fraction();
 		f.numerator = this.numerator * other.denominator + this.denominator * other.numerator;
 		f.denominator = this.denominator * other.denominator;
+                f.reduce();
 		return f;
 	}
 	
@@ -81,6 +81,7 @@ public class Fraction {
 		Fraction f = new Fraction();
 		f.numerator = this.numerator + this.denominator * m;
 		f.denominator = this.denominator;
+                f.reduce();
 		return f;
 	}
 	
@@ -88,7 +89,8 @@ public class Fraction {
 	public Fraction multiply(Fraction other) {
 		Fraction f = new Fraction();
 		f.numerator = this.numerator * other.numerator;
-		f.denominator = this.denominator * other.numerator;
+		f.denominator = this.denominator * other.denominator;
+                f.reduce();
 		return f;
 	}
 	
@@ -97,6 +99,7 @@ public class Fraction {
 		Fraction f = new Fraction();
 		f.numerator = this.numerator * m;
 		f.denominator = this.denominator;
+                f.reduce();
 		return f;
 	}
 	
@@ -107,17 +110,15 @@ public class Fraction {
 			numerator *= -1;
 			denominator *= -1;
 		}
-		// since MyMathLib doesn't seem to work, use Java's BigInteger gcd method and cast to int
-		BigInteger b1 = BigInteger.valueOf(numerator);
-		BigInteger b2 = BigInteger.valueOf(denominator);
-		BigInteger gcd = b1.gcd(b2);
-		int gcf = gcd.intValue();
+		// use MyMathLib for gcf
+		int gcf = MyMathLib.gcf(Math.abs(numerator), Math.abs(denominator));
 		numerator /= gcf;
 		denominator /= gcf;
 	}
 	
 	// return the fraction in string format
 	public String toString() {
+                this.reduce();
 		return numerator + "/" + denominator;
 	}
 }

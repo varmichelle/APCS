@@ -1,9 +1,8 @@
 /**
- * 
+ * Class Taxes - Computes pay after applying taxes
  * @author Michelle Li
  * Period 1
  * 
- * This program computes pay given tax rates
  */
 
 public class Taxes {

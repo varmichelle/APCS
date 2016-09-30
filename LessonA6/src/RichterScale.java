@@ -18,6 +18,7 @@ public class RichterScale {
 		else if (magnitude >= 7) System.out.println("Many buildings destroyed");
 		else if (magnitude >= 6) System.out.println("Many buildings considerably damaged, some collapse");
 		else if (magnitude >= 4.5) System.out.println("Damage to poorly constructed buildings");
+		else System.out.println("No destruction of buildings");
 		
 	}
 

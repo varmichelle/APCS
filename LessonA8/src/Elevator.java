@@ -14,7 +14,7 @@ public class Elevator {
 	private final int MAX_FLOORS = 20;
 	
 	/**
-	 * Prints appropriate message given floor number
+	 * Method to print appropriate message given floor number
 	 *  
 	 */
 	public void simulate() {

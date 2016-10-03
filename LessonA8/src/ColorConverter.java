@@ -152,10 +152,10 @@ public class ColorConverter {
 	 * Method HSVtoRGB to set R, G, B values
 	 */
 	public void HSVtoRGB() {
-		int C = brightness * saturation;
-		int X = C * (1 - (Math.abs(hue / 60)%2) - 1);
-		int m = brightness - C;
-		int rPrime = 0, gPrime = 0, bPrime = 0;
+		double C = brightness * saturation / 100;
+		double X = C * (1 - (Math.abs(hue / 60)%2 - 1));
+		double m = brightness / 100 - C;
+		double rPrime = 0, gPrime = 0, bPrime = 0;
 		if (hue < 60) {
 			rPrime = C;
 			gPrime = X;
@@ -181,11 +181,14 @@ public class ColorConverter {
 			gPrime = 0;
 			bPrime = X;
 		}
-		red = (rPrime + m) * 255;
-		green = (gPrime + m) * 255;
-		blue = (bPrime + m) * 255;
+		red = (int) (((rPrime + m) * 255) / 100 + 0.5);
+		green = (int) (((gPrime + m) * 255) / 100 + 0.5);
+		blue = (int) (((bPrime + m) * 255) / 100 + 0.5);
+		if (red == 256) red--;
+		if (green == 256) green--;
+		if (blue == 256) blue--;
 	}
-
+	
 	/**
 	 * Method printRBGtoHSV() to print the RBG to HSV values as a string
 	 */

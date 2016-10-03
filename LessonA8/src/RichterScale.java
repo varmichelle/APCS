@@ -12,7 +12,7 @@ public class RichterScale {
 	 * method to determine and print appropriate message for earthquake damage
 	 * @param magnitude double for the magnitude of the earthquake
 	 */
-	public static void effect(double magnitude) {
+	public static void getEffect(double magnitude) {
 		
 		if (magnitude >= 8) System.out.println("Most structures fall");
 		else if (magnitude >= 7) System.out.println("Many buildings destroyed");

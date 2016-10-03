@@ -4,7 +4,6 @@
  * Period: 1
  */
 
-
 import java.util.*;
 
 public class Elevator {

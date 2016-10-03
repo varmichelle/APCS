@@ -14,7 +14,7 @@ public class Elevator {
 	
 	/**
 	 * Method to print appropriate message given floor number
-	 *  
+	 * Checks to make sure floor is an int, not 13, and in the range 1 - MAX_FLOORS
 	 */
 	public void simulate() {
 		System.out.print("Floor: ");

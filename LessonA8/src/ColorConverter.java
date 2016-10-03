@@ -90,6 +90,11 @@ public class ColorConverter {
 		}
 	}
 
+	/**
+	 * Private method round() to round r, g, b values
+	 * @param a - double to round
+	 * @return rounded value
+	 */
 	private int round(double a) {
 		if (a >= 255) return 255;
 		double floor = (int) a;
@@ -159,9 +164,11 @@ public class ColorConverter {
 	 * Method HSVtoRGB to set R, G, B values
 	 */
 	public void HSVtoRGB() {
-		double C = brightness * saturation / 10000;
-		double X = C * (1 - (Math.abs(hue / 60)%2 - 1));
-		double m = (brightness - C*100)/100;
+		double s = saturation / 100.0;
+		double v = brightness / 100.0;
+		double C = s * v;
+		double X = C * (1 - (Math.abs((double) hue / 60)%2 - 1));
+		double m = v - C;
 		double rPrime = 0, gPrime = 0, bPrime = 0;
 		if (hue < 60) {
 			rPrime = C;

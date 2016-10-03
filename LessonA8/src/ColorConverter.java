@@ -167,7 +167,7 @@ public class ColorConverter {
 		double s = saturation / 100.0;
 		double v = brightness / 100.0;
 		double C = s * v;
-		double X = C * (1 - (Math.abs((double) hue / 60)%2 - 1));
+		double X = C * (1 - (Math.abs(((double) hue / 60)%2 - 1)));
 		double m = v - C;
 		double rPrime = 0, gPrime = 0, bPrime = 0;
 		if (hue < 60) {

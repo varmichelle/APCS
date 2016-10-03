@@ -17,7 +17,7 @@ public class Elevator {
 	 *  
 	 */
 	public void simulate() {
-		System.out.println("Floor: ");
+		System.out.print("Floor: ");
 		if (!scan.hasNextInt()) System.out.println("Error: Not an integer");
 		else {
 			int floor = scan.nextInt();

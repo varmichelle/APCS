@@ -90,6 +90,13 @@ public class ColorConverter {
 		}
 	}
 
+	private int round(double a) {
+		if (a >= 255) return 255;
+		double floor = (int) a;
+		if (floor == a) return (int) floor;
+		else return (int) floor + 1;
+	}
+	
 	/**
 	 * Method calculateHue() to calculate the hue value given R, G, B
 	 * @return hue
@@ -135,7 +142,7 @@ public class ColorConverter {
 		double gPrime = green / 255.0;
 		double bPrime = blue / 255.0;
 		double cmax = getMaximum(rPrime, gPrime, bPrime);
-		int brightness = (int) (100 * cmax);
+		int brightness = (int) (cmax * 100);
 		return brightness;
 	}
 
@@ -152,9 +159,9 @@ public class ColorConverter {
 	 * Method HSVtoRGB to set R, G, B values
 	 */
 	public void HSVtoRGB() {
-		double C = brightness * saturation / 100;
+		double C = brightness * saturation / 10000;
 		double X = C * (1 - (Math.abs(hue / 60)%2 - 1));
-		double m = brightness / 100 - C;
+		double m = (brightness - C*100)/100;
 		double rPrime = 0, gPrime = 0, bPrime = 0;
 		if (hue < 60) {
 			rPrime = C;
@@ -181,12 +188,9 @@ public class ColorConverter {
 			gPrime = 0;
 			bPrime = X;
 		}
-		red = (int) (((rPrime + m) * 255) / 100 + 0.5);
-		green = (int) (((gPrime + m) * 255) / 100 + 0.5);
-		blue = (int) (((bPrime + m) * 255) / 100 + 0.5);
-		if (red == 256) red--;
-		if (green == 256) green--;
-		if (blue == 256) blue--;
+		red = round((rPrime + m) * 255);
+		green = round((gPrime + m) * 255);
+		blue = round((bPrime + m) * 255);
 	}
 	
 	/**
@@ -195,7 +199,7 @@ public class ColorConverter {
 	public void printRGBtoHSV() {
 		char c = 176;
 		System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "\tRGB = (", red, ", ", green, ", ", blue, ")");
-		System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "HSV = (", hue, ("" + c + ", "), saturation, "%, ", brightness,
+		System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "HSV = (", hue, ("" + c + ", "), (saturation), "%, ", (brightness),
 				"%)\n");
 	}
 
@@ -204,7 +208,7 @@ public class ColorConverter {
 	 */
 	public void printHSVtoRGB() {
 		char c = 176;
-		System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "HSV = (", hue, ("" + c + ", "), saturation, "%, ", brightness,
+		System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "HSV = (", hue, ("" + c + ", "), (saturation), "%, ", (brightness),
 				"%)");
 		System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "\tRGB = (", red, ", ", green, ", ", blue, ")\n");
 	}

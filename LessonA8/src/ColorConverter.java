@@ -90,6 +90,10 @@ public class ColorConverter {
 		}
 	}
 
+	/**
+	 * Method calculateHue() to calculate the hue value given R, G, B
+	 * @return hue
+	 */
 	private int calculateHue() {
 		double rPrime = red / 255.0;
 		double gPrime = green / 255.0;
@@ -98,29 +102,93 @@ public class ColorConverter {
 		double cmin = getMinimum(rPrime, gPrime, bPrime);
 		double delta = cmax - cmin;
 		if (delta == 0) return 0;
-		if (cmax == rPrime) {
-			
-		}
+		int hue = 0;
+		if (cmax == rPrime) hue = 60 * (int) (((gPrime - bPrime)/delta) % 6);
+		if (cmax == gPrime) hue = 60 * (int) ((bPrime - rPrime)/delta + 2);
+		if (cmax == bPrime) hue = 60 * (int) ((rPrime - gPrime)/delta + 4);
+		return hue;
 	}
 
+	/**
+	 * Method calculateSaturation() to calculate saturation value given R, G, B
+	 * @return saturation
+	 */
 	private int calculateSaturation() {
-
+		double rPrime = red / 255.0;
+		double gPrime = green / 255.0;
+		double bPrime = blue / 255.0;
+		double cmax = getMaximum(rPrime, gPrime, bPrime);
+		double cmin = getMinimum(rPrime, gPrime, bPrime);
+		double delta = cmax - cmin;
+		int saturation = 0;
+		if (cmax == 0) saturation = 0;
+		else saturation = (int) (100 * delta / cmax);	
+		return saturation;
 	}
 
+	/**
+	 * Method calculateBrightness() to calculate brightness value given R, G, B
+	 * @return brightness
+	 */
 	private int calculateBrightness() {
-
+		double rPrime = red / 255.0;
+		double gPrime = green / 255.0;
+		double bPrime = blue / 255.0;
+		double cmax = getMaximum(rPrime, gPrime, bPrime);
+		int brightness = (int) (100 * cmax);
+		return brightness;
 	}
 
+	/**
+	 * Method RBGtoHSV() to set hue, saturation, brightness values
+	 */
 	public void RGBtoHSV() {
 		hue = calculateHue();
 		saturation = calculateSaturation();
 		brightness = calculateBrightness();
 	}
 
+	/**
+	 * Method HSVtoRGB to set R, G, B values
+	 */
 	public void HSVtoRGB() {
-		
+		int C = brightness * saturation;
+		int X = C * (1 - (Math.abs(hue / 60)%2) - 1);
+		int m = brightness - C;
+		int rPrime = 0, gPrime = 0, bPrime = 0;
+		if (hue < 60) {
+			rPrime = C;
+			gPrime = X;
+			bPrime = 0;
+		} else if (hue < 120) {
+			rPrime = X;
+			gPrime = C;
+			bPrime = 0;
+		} else if (hue < 180) {
+			rPrime = 0;
+			gPrime = C;
+			bPrime = X;
+		} else if (hue < 240) {
+			rPrime = 0;
+			gPrime = X;
+			bPrime = C;
+		} else if (hue < 300) {
+			rPrime = X;
+			gPrime = 0;
+			bPrime = C;
+		} else if (hue < 360) {
+			rPrime = C;
+			gPrime = 0;
+			bPrime = X;
+		}
+		red = (rPrime + m) * 255;
+		green = (gPrime + m) * 255;
+		blue = (bPrime + m) * 255;
 	}
 
+	/**
+	 * Method printRBGtoHSV() to print the RBG to HSV values as a string
+	 */
 	public void printRGBtoHSV() {
 		char c = 176;
 		System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "\tRGB = (", red, ", ", green, ", ", blue, ")");
@@ -128,6 +196,9 @@ public class ColorConverter {
 				"%)\n");
 	}
 
+	/**
+	 * Method printHSVtoRGB() to print the HSV to RGB values as a string
+	 */
 	public void printHSVtoRGB() {
 		char c = 176;
 		System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "HSV = (", hue, ("" + c + ", "), saturation, "%, ", brightness,

@@ -17,10 +17,15 @@ public class Elevator {
 	 * Checks to make sure floor is an int, not 13, and in the range 1 - MAX_FLOORS
 	 */
 	public void simulate() {
+		// prompt user to enter floor
 		System.out.print("Floor: ");
+		// if the input is not an integer (string etc), print an error message
 		if (!scan.hasNextInt()) System.out.println("Error: Not an integer");
+		// if the input is an integer:
 		else {
+			// read input
 			int floor = scan.nextInt();
+			// print appropriate messages depending on floor
 			if (floor == 13) System.out.println("Error: There is no thirteenth floor");
 			else if (floor > MAX_FLOORS || floor <= 0) 
 				System.out.println("Error: The floor must be between 1 and " + MAX_FLOORS);

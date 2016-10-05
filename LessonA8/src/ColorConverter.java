@@ -63,9 +63,11 @@ public class ColorConverter {
 	 * @return maximum of 3 numbers
 	 */
 	private double getMaximum(double a, double b, double c) {
+		// if a is greater than b, return the greater of a and c
 		if (a > b) {
 			if (a > c) return a;
 			else return c;
+		// if b is greater than a, return the greater of b and c
 		} else {
 			if (b > c) return b;
 			else return c;
@@ -81,9 +83,11 @@ public class ColorConverter {
 	 * @return minimum of 3 numbers
 	 */
 	private double getMinimum(double a, double b, double c) {
+		// if a is less than b, return the smaller of a and c
 		if (a < b) {
 			if (a < c) return a;
 			else return c;
+		// if b is less than a, return the smaller of b and c
 		} else {
 			if (b < c) return b;
 			else return c;
@@ -96,9 +100,13 @@ public class ColorConverter {
 	 * @return rounded value
 	 */
 	private int round(double a) {
+		// round appropriately (truncate to 255 if over 255)
 		if (a >= 255) return 255;
+		// otherwise, if less than 255:
 		double floor = (int) a;
+		// return the number itself if it's an integer
 		if (floor == a) return (int) floor;
+		// otherwise return the number rounded up
 		else return (int) floor + 1;
 	}
 	
@@ -107,6 +115,7 @@ public class ColorConverter {
 	 * @return hue
 	 */
 	private int calculateHue() {
+		// calculate the hue based on the given formulas
 		double rPrime = red / 255.0;
 		double gPrime = green / 255.0;
 		double bPrime = blue / 255.0;
@@ -126,6 +135,7 @@ public class ColorConverter {
 	 * @return saturation
 	 */
 	private int calculateSaturation() {
+		// calculate saturation based on the given formulas
 		double rPrime = red / 255.0;
 		double gPrime = green / 255.0;
 		double bPrime = blue / 255.0;
@@ -134,6 +144,7 @@ public class ColorConverter {
 		double delta = cmax - cmin;
 		int saturation = 0;
 		if (cmax == 0) saturation = 0;
+		// make sure to multiply by 100 to get saturation as a percentage
 		else saturation = (int) (100 * delta / cmax);	
 		return saturation;
 	}
@@ -143,10 +154,12 @@ public class ColorConverter {
 	 * @return brightness
 	 */
 	private int calculateBrightness() {
+		// calculate brightness based on the formulas
 		double rPrime = red / 255.0;
 		double gPrime = green / 255.0;
 		double bPrime = blue / 255.0;
 		double cmax = getMaximum(rPrime, gPrime, bPrime);
+		// make sure to multiply by 100 to get brightness as a percentage
 		int brightness = (int) (cmax * 100);
 		return brightness;
 	}
@@ -155,6 +168,7 @@ public class ColorConverter {
 	 * Method RBGtoHSV() to set hue, saturation, brightness values
 	 */
 	public void RGBtoHSV() {
+		// set hue, saturation, and brightness based on the calculated values using the formulas
 		hue = calculateHue();
 		saturation = calculateSaturation();
 		brightness = calculateBrightness();
@@ -164,6 +178,7 @@ public class ColorConverter {
 	 * Method HSVtoRGB to set R, G, B values
 	 */
 	public void HSVtoRGB() {
+		// convert hsv to rgb based on the given formulas
 		double s = saturation / 100.0;
 		double v = brightness / 100.0;
 		double C = s * v;
@@ -195,6 +210,7 @@ public class ColorConverter {
 			gPrime = 0;
 			bPrime = X;
 		}
+		// make sure to round red, green, and blue appropriately
 		red = round((rPrime + m) * 255);
 		green = round((gPrime + m) * 255);
 		blue = round((bPrime + m) * 255);
@@ -204,6 +220,7 @@ public class ColorConverter {
 	 * Method printRBGtoHSV() to print the RBG to HSV values as a string
 	 */
 	public void printRGBtoHSV() {
+		// given method to print RGB to HSV as a string
 		char c = 176;
 		System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "\tRGB = (", red, ", ", green, ", ", blue, ")");
 		System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "HSV = (", hue, ("" + c + ", "), (saturation), "%, ", (brightness),
@@ -214,6 +231,7 @@ public class ColorConverter {
 	 * Method printHSVtoRGB() to print the HSV to RGB values as a string
 	 */
 	public void printHSVtoRGB() {
+		// given method to print the HSV to RGB values as a string
 		char c = 176;
 		System.out.printf("%10s%3d%2s%3d%2s%3d%2s", "HSV = (", hue, ("" + c + ", "), (saturation), "%, ", (brightness),
 				"%)");

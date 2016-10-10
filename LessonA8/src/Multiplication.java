@@ -16,12 +16,15 @@ public class Multiplication {
 	
 	public int mult(int a, int b) {
 		
+		// handle negative numbers
 		if (b < 0) {
 			a *= -1;
 			b *= -1;
 		}
 		int product = 0;
+		// base case
 		if (b == 0) return 0;
+		// recursive calls (add a to product b times)
 		if (b > 0) {
 			product += a + mult(a, b-1);
 		}

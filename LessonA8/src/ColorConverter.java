@@ -169,9 +169,7 @@ public class ColorConverter {
 	 */
 	public void RGBtoHSV() {
 		// set hue, saturation, and brightness based on the calculated values using the formulas
-		hue = calculateHue();
-		saturation = calculateSaturation();
-		brightness = calculateBrightness();
+		setHSV(calculateHue(), calculateSaturation(), calculateBrightness());
 	}
 
 	/**

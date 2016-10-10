@@ -16,8 +16,12 @@ public class Multiplication {
 	
 	public int mult(int a, int b) {
 		
+		if (b < 0) {
+			a *= -1;
+			b *= -1;
+		}
 		int product = 0;
-		if (b <= 0) return 0;
+		if (b == 0) return 0;
 		if (b > 0) {
 			product += a + mult(a, b-1);
 		}

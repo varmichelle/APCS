@@ -10,7 +10,7 @@ public class Fibonacci {
 	/**
 	 * Method fib calculates the nth Fibonacci number
 	 * @param n - index of the desired Fibonacci number 
-	 * @return
+	 * @return nth Fibonacci number
 	 */
 	public int fib(int n) {
 		

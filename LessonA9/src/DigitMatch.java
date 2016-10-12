@@ -15,8 +15,10 @@ public class DigitMatch {
 	 */
 	public int countMatch(int a, int b) {
 		
+		// if reached end of number, stop
 		if (a <= 0 || b <= 0) return 0;
 		else {
+			// otherwise check the last digit and recurse
 			if (a % 10 == b % 10) return 1 + countMatch(a/10, b/10);
 		}
 		return 0;

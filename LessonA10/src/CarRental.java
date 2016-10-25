@@ -9,7 +9,7 @@ public class CarRental {
 		this.licensePlate = licensePlate;
 	}
 	
-	public void setCode() {
+	public void computeCode() {
 		int firstLetter = (int) licensePlate.charAt(0);
 		int secondLetter = (int) licensePlate.charAt(1);
 		int thirdLetter = (int) licensePlate.charAt(2);

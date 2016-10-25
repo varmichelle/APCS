@@ -1,3 +1,8 @@
+/**
+ * @author Michelle Li
+ * Period 1
+ */
+
 import java.util.*;
 
 public class CarRentalDriver {

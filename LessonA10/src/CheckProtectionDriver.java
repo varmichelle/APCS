@@ -9,6 +9,7 @@ public class CheckProtectionDriver {
 
 	public static void main(String[] args) {
 		
+		CheckProtection cp = new CheckProtection(10);
 
 	}
 

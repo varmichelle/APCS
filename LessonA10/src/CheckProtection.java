@@ -23,10 +23,10 @@ public class CheckProtection {
 	public CheckProtection(int spaces) {
 		MAX_LENGTH = spaces;
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter amount: ");
+		System.out.print("Enter the check amount: ");
 		double amt = scan.nextDouble();
 		// round amount to 2 decimal places
-		amount = "" + (int) (amt * 100 + 0.5) / 100;
+		amount = "" + Math.round(amt * 100) / 100.0;
 		// append an extra 0 after the decimal place if there's only 1 digit
 		if (amount.length() - amount.indexOf(".") <= 2) amount += "0";
 		if (amount.length() > MAX_LENGTH) System.out.println("Error: Amount takes too many digits");
@@ -36,6 +36,7 @@ public class CheckProtection {
 	/**
 	 * Method printAmount() to print the amount on the check in the specified form
 	 */
+	
 	public void printAmount() {
 		System.out.println("amount = $" + addAsterisks(addCommas(amount)));
 	}
@@ -47,7 +48,7 @@ public class CheckProtection {
 	 */
 	
 	public String addAsterisks(String s) {
-		if (s.length() != MAX_LENGTH) return addAsterisks("*" + s);
+		if (s.length() < MAX_LENGTH) return addAsterisks("*" + s);
 		else return s;
 	}
 
@@ -56,7 +57,15 @@ public class CheckProtection {
 	 * @param s - string
 	 * @return string with added commas
 	 */
+	
 	public String addCommas(String s) {
-		
+		// handle decimals 
+		if (s.indexOf(".") >= 0) {
+			// insert commas into the integer portion, then append decimal portion at the end
+			return addCommas(s.substring(0, s.length() - 3)) + s.substring(s.length() - 3, s.length());
+		} else {
+			if (s.length() <= 3) return s;
+			else return addCommas(s.substring(0, s.length() - 3)) + "," + s.substring(s.length() - 3, s.length());
+		}
 	}
 }

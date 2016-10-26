@@ -12,7 +12,7 @@ public class StringUtilDriver {
 		
 		System.out.println(StringUtil.reverse("abcdef"));
 		System.out.println(StringUtil.palindrome("Lewd did I live, & evil I did dwel"));
-//		System.out.println(StringUtil.shorthand("AND"));
+		System.out.println(StringUtil.shorthand("anD hi have fOR"));
 
 	}
 

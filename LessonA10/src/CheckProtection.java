@@ -2,6 +2,7 @@
  * 
  * @author Michelle Li
  * Period 1
+ * Class CheckProtection - secure a check
  *
  */
 

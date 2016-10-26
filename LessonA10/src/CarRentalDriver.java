@@ -1,6 +1,7 @@
 /**
  * @author Michelle Li
  * Period 1
+ * Class CarRentalDriver to test CarRental class
  */
 
 import java.util.*;

@@ -2,6 +2,7 @@
  * 
  * @author Michelle Li
  * Period 1
+ * Class CheckProtectionDriver - test the CheckProtection class
  *
  */
 

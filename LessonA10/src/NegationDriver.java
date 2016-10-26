@@ -2,6 +2,7 @@
  * 
  * @author Michelle Li
  * Period 1
+ * Class NegationDriver - test the Negation class
  *
  */
 public class NegationDriver {

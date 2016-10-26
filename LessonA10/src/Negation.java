@@ -2,6 +2,7 @@
  * 
  * @author Michelle Li
  * Period 1
+ * Class Negation - negate a string (replace all 0s with 1s and vice versa)
  *
  */
 public class Negation {

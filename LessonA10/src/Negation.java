@@ -2,13 +2,13 @@
  * 
  * @author Michelle Li
  * Period 1
- * Class Negation - negate a string (replace all 0s with 1s and vice versa)
+ * Class Negation - negate a string (swap all 0s with 1s and vice versa)
  *
  */
 public class Negation {
 
 	/**
-	 * Static method negate - replaces all 0's with 1's and vice versa
+	 * Static method negate - swaps all 0's with 1's and vice versa
 	 * @param s - string to negate
 	 * @return - negated string
 	 */
@@ -27,7 +27,8 @@ public class Negation {
 		if (index >= original.length()) return "";
 		else {
 			if (original.charAt(index) == '0') newStr += '1' + negateHelper(original, index + 1);
-			else newStr += '0' + negateHelper(original, index + 1);
+			else if (original.charAt(index) == '1') newStr += '0' + negateHelper(original, index + 1);
+			else newStr += original.charAt(index) + negateHelper(original, index + 1);
 		}
 		return newStr;
 	}

@@ -12,9 +12,9 @@ public class CarRental {
 	
 	/**
 	 * Constructor to initialize make, model, and licensePlate
-	 * @param make - make of the rental car in string form
-	 * @param model - model of the rental car in strong form
-	 * @param licensePlate - license plate of the rental car in string form
+	 * @param make - make of the rental car as a string 
+	 * @param model - model of the rental car as a strong
+	 * @param licensePlate - license plate of the rental car as a string 
 	 */
 	
 	public CarRental(String make, String model, String licensePlate) {
@@ -51,7 +51,7 @@ public class CarRental {
 	
 	/**
 	 * Method toString
-	 * @return string form of the data (make, model, license plate, code)
+	 * @return string of the data (make, model, license plate, code)
 	 */
 	
 	public String toString() {

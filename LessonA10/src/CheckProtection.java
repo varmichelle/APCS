@@ -35,7 +35,7 @@ public class CheckProtection {
 	}
 	
 	/**
-	 * Method printAmount() to print the amount on the check in the specified form
+	 * Method printAmount() to print the amount on the check 
 	 */
 	
 	public void printAmount() {
@@ -43,7 +43,7 @@ public class CheckProtection {
 	}
 	
 	/**
-	 * Method addAsterisks to insert leading asterisks before a check
+	 * Method addAsterisks to insert leading asterisks in front a check
 	 * @param s - string
 	 * @return string with inserted asterisks
 	 */

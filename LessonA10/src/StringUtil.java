@@ -49,47 +49,47 @@ public class StringUtil {
 	/**
 	 * Method shorthand to convert string to shorthand (abbreviates and removes vowels)
 	 * @param s - input string to convert to shorthand
-	 * @return string in shorthand form
+	 * @return string in shorthand 
 	 */
 	
 	public static String shorthand(String s) {
 		// if it contains and, replace it with &
 		int index = s.toLowerCase().indexOf("and");
-		String before = "", after = "";
+		String pre = "", after = "";
 		if (index >= 0) {
-			if (index > 0) before = s.substring(0, index);
+			if (index > 0) pre = s.substring(0, index);
 			if (index < s.length() - 1) after = s.substring(index + 3);
-			return shorthand(before) + "&" + shorthand(after);
+			return shorthand(pre) + "&" + shorthand(after);
 		}
 		
 		// if it contains to, replace it with 2
 		index = s.toLowerCase().indexOf("to");
-		before = "";
+		pre = "";
 		after = "";
 		if (index >= 0) {
-			if (index > 0) before = s.substring(0, index);
+			if (index > 0) pre = s.substring(0, index);
 			if (index < s.length() - 1) after = s.substring(index + 2);
-			return shorthand(before) + "2" + shorthand(after);
+			return shorthand(pre) + "2" + shorthand(after);
 		}
 		
 		// if it contains you, replace it with U
 		index = s.toLowerCase().indexOf("you");
-		before = "";
+		pre = "";
 		after = "";
 		if (index >= 0) {
-			if (index > 0) before = s.substring(0, index);
+			if (index > 0) pre = s.substring(0, index);
 			if (index < s.length() - 1) after = s.substring(index + 3);
-			return shorthand(before) + "U" + shorthand(after);
+			return shorthand(pre) + "U" + shorthand(after);
 		}
 		
-		// if it contains for, replace it with 4
+		// if it contains "for", replace it with 4
 		index = s.toLowerCase().indexOf("for");
-		before = "";
+		pre = "";
 		after = "";
 		if (index >= 0) {
-			if (index > 0) before = s.substring(0, index);
+			if (index > 0) pre = s.substring(0, index);
 			if (index < s.length() - 1) after = s.substring(index + 3);
-			return shorthand(before) + "4" + shorthand(after);
+			return shorthand(pre) + "4" + shorthand(after);
 		}
 		
 		// remove any vowels if any
@@ -100,12 +100,12 @@ public class StringUtil {
 		int u = s.toLowerCase().indexOf("u");
 		// handle all variables at once
 		index = Math.max(a, Math.max(e, Math.max(i, Math.max(o, u))));
-		before = "";
+		pre = "";
 		after = "";
 		if (index >= 0) {
-			if (index > 0) before = s.substring(0, index);
+			if (index > 0) pre = s.substring(0, index);
 			if (index < s.length() - 1) after = s.substring(index + 1);
-			return shorthand(before) + shorthand(after);
+			return shorthand(pre) + shorthand(after);
 		}
 		
 		return s;

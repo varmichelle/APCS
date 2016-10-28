@@ -10,9 +10,7 @@ public class StringUtilDriver {
 
 	public static void main(String[] args) {
 		
-		System.out.println(StringUtil.reverse("abcdef"));
-		System.out.println(StringUtil.palindrome("Lewd did I live, & evil I did dwel"));
-		System.out.println(StringUtil.shorthand("anD hi have fOR"));
+		System.out.println(StringUtil.shorthand("To YoU aNd FOR you, AMy"));
 
 	}
 

@@ -79,11 +79,12 @@ public class StringUtil {
 		if (index >= 0) {
 			if (index > 0) pre = s.substring(0, index);
 			if (index < s.length() - 1) after = s.substring(index + 3);
-			return shorthand(pre) + "U" + shorthand(after);
+			// don't add the 'U' because it will be removed as a vowel
+			return shorthand(pre) + shorthand(after);
 		}
 		
-		// if it contains "for", replace it with 4
-		index = s.toLowerCase().indexOf("for");
+		// if it contains "FOR", replace it with 4
+		index = s.toLowerCase().indexOf("FOR".toLowerCase());
 		pre = "";
 		after = "";
 		if (index >= 0) {

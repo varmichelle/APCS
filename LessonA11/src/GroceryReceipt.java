@@ -62,7 +62,6 @@ public class GroceryReceipt {
 	public String valueToString(double number) {
 		String s = "" + Math.round(number*100)/100.0;
 		if (s.length() - s.indexOf(".") < 3) s+= "0";
-		if (s.length() - s.indexOf(".") < 3) s+= "0";
 		return s;
 	}
 	

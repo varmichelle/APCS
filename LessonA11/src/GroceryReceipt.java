@@ -41,7 +41,7 @@ public class GroceryReceipt {
 	 * Getter method for total
 	 * @return total
 	 */
-	public double total() {
+	public double getTotal() {
 		return total;
 	}
 	

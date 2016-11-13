@@ -86,7 +86,7 @@ public class Item {
 	 * @return data in string format
 	 */
 	public String toString() {
-		return name + " $" + price + " (-$" + discount + ")\n";
+		return name + " $" + valueToString(price) + " (-$" + valueToString(discount) + ")\n";
 	}
 	
 }

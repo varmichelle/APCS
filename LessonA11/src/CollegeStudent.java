@@ -5,7 +5,7 @@
  *
  */
 
-class CollegeStudent extends Student {
+public class CollegeStudent extends Student {
 
 	private String major;
 	private int year;

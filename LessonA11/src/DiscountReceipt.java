@@ -63,7 +63,7 @@ public class DiscountReceipt extends GroceryReceipt {
 	 * @return discount percentage
 	 */
 	public double getDiscountPercent() {
-		return discountAmount / super.getTotal();
+		return 100 * (discountAmount / super.getTotal());
 	}
 	
 	/**
@@ -76,7 +76,7 @@ public class DiscountReceipt extends GroceryReceipt {
 		s += "Discount: $" + super.valueToString(getDiscountAmount()) + "\n";
 		s += "Number of discounted items: " + discountCount + "\n";
 		s += "Discount percent: " + super.valueToString(getDiscountPercent()) + "%\n";
-		s += "Total: $" + super.valueToString(super.getTotal());
+		s += "Total: $" + super.valueToString(getTotal());
 		return s;
 	}
 	

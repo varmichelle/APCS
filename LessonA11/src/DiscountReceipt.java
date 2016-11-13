@@ -73,10 +73,10 @@ public class DiscountReceipt extends GroceryReceipt {
 	public String toString() {
 		String s = super.getReceipt() + "\n";
 		s += "Sub-Total: $" + super.getTotal() + "\n";
-		s += "Discount: $" + getDiscountAmount() + "\n";
+		s += "Discount: $" + super.valueToString(getDiscountAmount()) + "\n";
 		s += "Number of discounted items: " + discountCount + "\n";
 		s += "Discount percent: " + super.valueToString(getDiscountPercent()) + "%\n";
-		s += "Total: " + super.valueToString(getTotal());
+		s += "Total: $" + super.valueToString(getTotal());
 		return s;
 	}
 	

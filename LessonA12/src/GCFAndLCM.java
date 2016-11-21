@@ -5,7 +5,7 @@
  *
  */
 
-public class GCFandLCM {
+public class GCFAndLCM {
 	
 	/**
 	 * Calculates gcf of 2 numbers using Euclidean algorithm
@@ -14,11 +14,11 @@ public class GCFandLCM {
 	 * @return gcf
 	 */
 	public int GCF(int a, int b) {
-		if (a == b) return a;
-		else {
-			if (a > b) return GCF(a, a-b);
-			else return GCF(a,b-a);
+		while (a != b) {
+			if (a > b) a -=b;
+			else b -= a;
 		}
+		return a;
 	}
 	
 	/**

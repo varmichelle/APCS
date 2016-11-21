@@ -27,7 +27,8 @@ public class FunLoops {
 			// if the sum isn't a perfect square, continue to search for the next magic number
 			if (sqrt - (int) sqrt > 0) continue;
 			// otherwise print the number and increment the number of magic squares found
-			else System.out.println(sum);
+			else System.out.print(sum);
+			if (numMagicSquares != n-1) System.out.print(" ");
 			numMagicSquares++;
 		}
 	}

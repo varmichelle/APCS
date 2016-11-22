@@ -16,6 +16,9 @@ public class Grades {
 	Scanner in = new Scanner(System.in);
 
 	public void getGradesAndCalculateGPA() {
+	  numGrades = 0;
+	  gpa = 0;
+	  hasF = 0;
 	  System.out.print("Enter your grades: ");
 	  String s = in.next();
 		while ((s.toLowerCase().charAt(0) >= 'a' && s.toLowerCase().charAt(0) <= 'd') || s.toLowerCase().charAt(0) == 'f') {
@@ -28,7 +31,7 @@ public class Grades {
 			s = in.next();
 		}
 	  gpa /= numGrades;
-    System.out.printf("GPA: %.2f\n", gpa);
+    System.out.printf("GPA = %.2f\n", gpa);
 		if (numGrades < 4) {
 			message = "Ineligible, taking less than 4 classes";
 		} else {

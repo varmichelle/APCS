@@ -1,4 +1,3 @@
-
 /**
  * 
  * @author Michelle Li
@@ -28,8 +27,7 @@ public class Grades {
 		// take in input
 		String s = in.next();
 		// break if s isn't a legal grade character
-		while ((s.toLowerCase().charAt(0) >= 'a' && s.toLowerCase().charAt(0) <= 'd')
-				|| s.toLowerCase().charAt(0) == 'f') {
+		while ((s.toLowerCase().charAt(0) >= 'a' && s.toLowerCase().charAt(0) <= 'd') || s.toLowerCase().charAt(0) == 'f') {
 			numGrades++;
 			// add appropriate value to gpa
 			if (s.toLowerCase().equals("a")) gpa += 4;

@@ -1,5 +1,6 @@
 /**
  * 
+ * This class finds the first n magic squares
  * @author Michelle Li
  * Period 1
  *

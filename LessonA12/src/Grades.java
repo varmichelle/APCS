@@ -1,5 +1,6 @@
 /**
  * 
+ * This class checks if a student is eligible to participate in extracurriculars
  * @author Michelle Li
  * Period 1
  *

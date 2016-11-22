@@ -1,5 +1,6 @@
 /**
  * 
+ * This class prints a loan table
  * @author Michelle Li
  * Period 1
  *

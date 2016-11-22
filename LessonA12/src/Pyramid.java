@@ -1,5 +1,6 @@
 /**
  * 
+ * This class prints a pyramid of stars (asterisks)
  * @author Michelle Li
  * Period 1
  *

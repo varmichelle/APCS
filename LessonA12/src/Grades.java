@@ -13,7 +13,6 @@ public class Grades {
 	private int numGrades = 0;
 	private double gpa = 0;
 	private int hasF = 0; // 0 = F, 1 = T
-	private String message;
 	Scanner in = new Scanner(System.in);
 
 	/**
@@ -42,24 +41,23 @@ public class Grades {
 		gpa /= numGrades;
 		System.out.printf("GPA = %.2f\n", gpa);
 		// set the appropriate message
-		if (numGrades < 4) {
-			message = "Ineligible, taking less than 4 classes";
-		} else {
-			if (gpa < 2) {
-				if (hasF == 1) message = "Ineligible, gpa below 2.0 and has F grade";
-				else message = "Ineligible, gpa below 2.0";
-			} else {
-				if (hasF == 1) message = "Ineligible, gpa above 2.0 but has F grade";
-				else message = "Eligible";
-			}
-		}
 	}
 
 	/**
 	 * Prints message
 	 */
 	public void printMessage() {
-		System.out.println(message);
+		if (numGrades < 4) {
+			System.out.println("Ineligible, taking less than 4 classes");
+		} else {
+			if (gpa < 2) {
+				if (hasF == 1) System.out.println("Ineligible, gpa below 2.0 and has F grade");
+				else System.out.println("Ineligible, gpa below 2.0");
+			} else {
+				if (hasF == 1) System.out.println("Ineligible, gpa above 2.0 but has F grade");
+				else System.out.println("Eligible");
+			}
+		}
 	}
 
 }

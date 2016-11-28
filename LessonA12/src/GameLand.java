@@ -53,7 +53,7 @@ public class GameLand {
 				if (location1 == location2) {
 					// player B bumped back to start
 					location2 = 0;
-					System.out.println(" - BUMPED - Player A is now at " + location1);
+					System.out.println(" >>> - BUMPED - Player A is now at " + location1);
 				} else {
 					// check for win
 					if (location1 > 100) {
@@ -86,11 +86,11 @@ public class GameLand {
 				if (location1 == location2) {
 					// player A bumped back to start
 					location1 = 0;
-					System.out.println(" - BUMPED - Player B is now at " + location2);
+					System.out.println(" >>> - BUMPED - Player B is now at " + location2);
 				} else {
 					// check for win
 					if (location2 > 100) {
-						System.out.println(" >>> Player B WINS!!!");
+						System.out.println(" >>> Player B WINS!!");
 						System.out.println("Player A is now at " + location1);
 						System.out.println("Player B is now at " + location2);
 						continue;

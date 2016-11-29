@@ -31,10 +31,10 @@ public class Chocolate {
 	 * @return - number of small bricks needed
 	 */
 	public int numberOfSmallBricksNeeded(int small, int big, int goal) {
-		// can't be done
-		if (big * 5 + small < goal) return -1;
-		// otherwise, print number of bricks needed
-		else return goal - big * 5;
+		// must always start with big brick if possible
+		if (canMakeBricks(small, big, goal)) {
+			return goal - Math.min((goal / 5), big) * 5;
+		} else return -1;
 	}
 	
 }

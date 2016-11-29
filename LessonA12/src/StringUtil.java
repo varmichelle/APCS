@@ -29,12 +29,26 @@ public class StringUtil {
 	 * @param s - input text
 	 * @return piglatin version of text as a String 
 	 */
-	public static String phraseToPigLation(String s) {
-		if (s.indexOf(" ") > -1) {
-			String word = s.substring(0, s.indexOf(" "));
-			output += pigLatinify(word);
-		} else output += pigLatinify(s);
-		return output;
+	public static String phraseToPigLatin(String s) {
+		String piglatin = ""; // stores the current piglatin version
+		String currentWord = s.charAt(0) + ""; // current word to be piglatinified
+		boolean previousIsLetter = true; // if the previous char is a letter
+		for (int i = 1; i < s.length(); i++) {
+			char c = s.charAt(i);
+			// if it's a letter
+			if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) {
+				currentWord += c;
+				previousIsLetter = true;
+			// if not a letter (space or punctuation)
+			} else {
+				if (previousIsLetter) piglatin += pigLatinify(currentWord);
+				previousIsLetter = false;
+				currentWord = "";
+				piglatin += c;
+			}
+		}
+		if (previousIsLetter) piglatin += pigLatinify(currentWord);
+		return piglatin;
 	}
 	
 	/**
@@ -43,11 +57,6 @@ public class StringUtil {
 	 * @return - word in pig latin
 	 */
 	private static String pigLatinify(String s) {
-		// handle punctuation
-		if (s.indexOf(",") != -1 || s.indexOf(".") != -1 || s.indexOf("!") != -1 || s.indexOf("?") != -1) {
-			// remove punctuation mark and the following space
-			s = s.substring(0, s.length() - 2);
-		}
 		String lowercase = s.toLowerCase();
 		// if word has no vowels, just append "ay"
 		if (lowercase.indexOf('a') == -1 && lowercase.indexOf('e') == -1 && lowercase.indexOf('i') == -1 && lowercase.indexOf('o') == -1 && lowercase.indexOf('u') == -1) {

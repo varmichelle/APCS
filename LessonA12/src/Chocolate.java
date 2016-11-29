@@ -16,7 +16,10 @@ public class Chocolate {
 	 * @return whether or not we can reach the goal
 	 */
 	public boolean canMakeBricks(int small, int big, int goal) {
-		if (small + big * 5 >= goal) return true;
+		// max amount that big bricks can take
+		int bigAmount = Math.min((goal / 5), big) * 5; 
+		// if there are enough small bricks left to reach the goal
+		if (goal - bigAmount <= small) return true;
 		else return false;
 	}
 	

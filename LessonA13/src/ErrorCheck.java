@@ -1,3 +1,9 @@
+/**
+ * Class ErrorCheck to handle bank account exceptions
+ * @author Michelle Li
+ * Period 1
+ *
+ */
 
 public class ErrorCheck {
 

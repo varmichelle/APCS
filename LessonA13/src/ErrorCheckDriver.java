@@ -1,4 +1,9 @@
-
+/**
+ * Class ErrorCheckDriver to test ErrorCheck class
+ * @author Michelle Li
+ * Period 1
+ *
+ */
 public class ErrorCheckDriver {
 
 	public static void main(String[] args) {

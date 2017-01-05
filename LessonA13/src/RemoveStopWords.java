@@ -15,7 +15,7 @@ public class RemoveStopWords {
 	 * @param inFile - name of input file
 	 * @param outFile - name of output file
 	 * @param maxLineLength - max number of characters in a line
-	 * @param stopList - name of stop words list file
+	 * @param stopList - stop words list
 	 */
 	public RemoveStopWords(String inFile, String outFile, int maxLineLength, String stopList) {
 		this.inFile = inFile;
@@ -25,10 +25,10 @@ public class RemoveStopWords {
 	}
 	
 	/**
-	 * Remove stop words from input file into output file
+	 * Removes stop words from input file into output file
+	 * @return numRemoved - number of words removed
 	 */
-	public void removeStopWords() {
-		
+	public int removeStopWords() {
+		int numRemoved = 0;
 	}
-	
 }

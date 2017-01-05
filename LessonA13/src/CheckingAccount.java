@@ -5,7 +5,7 @@
  *
  */
 
-public class ErrorCheck {
+public class CheckingAccount {
 
 	private double myBalance;
 	private int myAccountNumber;
@@ -13,7 +13,7 @@ public class ErrorCheck {
 	/**
 	 * Constructor to set myBalance and myAccountNumber to 0
 	 */
-	public ErrorCheck() {
+	public CheckingAccount() {
 		myBalance = 0;
 		myAccountNumber = 0;
 	}
@@ -24,7 +24,7 @@ public class ErrorCheck {
 	 * @param acctNum - account identifier
 	 * @throws Exception - Negative balance in account
 	 */
-	public ErrorCheck(double initialBalance, int acctNum) throws Exception {
+	public CheckingAccount(double initialBalance, int acctNum) throws Exception {
 		myAccountNumber = acctNum;
 		if (initialBalance < 0) throw new Exception("Negative balance in account " + myAccountNumber);
 		else myBalance = initialBalance;

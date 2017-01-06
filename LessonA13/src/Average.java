@@ -32,7 +32,7 @@ public class Average {
 		Scanner in = new Scanner(f);
 		// check if file is empty
 		if (!in.hasNext()) throw new Exception(fileName + " is empty");
-		int count = 0, sum = 0;
+		long count = 0, sum = 0;
 		while (in.hasNextInt()) {
 			sum += in.nextInt();
 			count++;

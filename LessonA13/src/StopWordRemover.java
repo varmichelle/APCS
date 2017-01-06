@@ -31,51 +31,48 @@ public class StopWordRemover {
 	 * Removes stop words from input file into output file
 	 * Each line of output is not more than max characters long
 	 * @return numRemoved - number of words removed
-	 * @throws FileNotFoundException 
 	 */
-	public int removeStopWords() throws Exception {
+	public int removeStopWords() {
 		try {
 			int numRemoved = 0;
 			Scanner in = new Scanner(new File(inFile));
 			FileWriter out = new FileWriter(new File(outFile));
 			int charsInLine = 0;
+			if (!in.hasNext()) System.out.println("Error: " + inFile + " is empty");
 			while (in.hasNext()) {
-				String fullWord = in.next();
-				String strippedWord = "";
-				for (int i = 0; i < fullWord.length(); i++) {
-					// only add letters
-					char letter = fullWord.charAt(i);
-					if ((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z')) {
-						strippedWord += letter;
-					}
-				}
+				String word = in.next();
+				String lowerCase = word.toLowerCase();
 				boolean works = false;
 				// check if word needs to be removed
-				if (stopList.contains(strippedWord)) {
+				if (stopList.contains(lowerCase)) {
 					// make sure it's the whole word that matches 
-					int start = stopList.indexOf(strippedWord);
+					int start = stopList.indexOf(lowerCase);
 					if (start == 0 || stopList.charAt(start - 1) == ' ') {
-						int finish = start + strippedWord.length() - 1;
+						int finish = start + lowerCase.length() - 1;
 						if (finish == stopList.length() - 1 || stopList.charAt(finish + 1) == ' ') {
 							works = true;
-							// check if enough room to print on current line
-							if (charsInLine + fullWord.length() + 1 <= maxLineLength) {
-								if (charsInLine > 0) System.out.print(" ");
-								out.write(fullWord);
-								charsInLine += fullWord.length();
-							} else {
-								out.write("\n" + fullWord);
-								charsInLine = fullWord.length();
-							}
+							numRemoved++;
 						}
 					}
 				}
-				if (!works) numRemoved++;
+				if (!works) {
+					// check if enough room to print on current line
+					if (charsInLine + word.length() + 1 <= maxLineLength) {
+						if (charsInLine > 0) out.write(" ");
+						out.write(word);
+						charsInLine += word.length() + 1;
+					} else {
+						out.write("\n" + word);
+						charsInLine = word.length();
+					}
+				}
 			}
 			out.close();
 			return numRemoved;
 		} 
-		catch (FileNotFoundException e) {} 
+		catch (FileNotFoundException e) {
+			System.out.println("Error: " + inFile + " (No such file or directory)");
+		} 
 		catch (IOException e) {}
 		return 0;
 	}

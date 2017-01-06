@@ -38,22 +38,25 @@ public class StopWordRemover {
 			Scanner in = new Scanner(new File(inFile));
 			FileWriter out = new FileWriter(new File(outFile));
 			int charsInLine = 0;
+			out.write(maxLineLength + "\n");
 			if (!in.hasNext()) System.out.println("Error: " + inFile + " is empty");
 			while (in.hasNext()) {
 				String word = in.next();
 				String lowerCase = word.toLowerCase();
+				String copy = stopList;
 				boolean works = false;
 				// check if word needs to be removed
-				if (stopList.contains(lowerCase)) {
+				while (copy.contains(lowerCase)) {
 					// make sure it's the whole word that matches 
-					int start = stopList.indexOf(lowerCase);
-					if (start == 0 || stopList.charAt(start - 1) == ' ') {
+					int start = copy.indexOf(lowerCase);
+					if (start == 0 || copy.charAt(start - 1) == ' ') {
 						int finish = start + lowerCase.length() - 1;
-						if (finish == stopList.length() - 1 || stopList.charAt(finish + 1) == ' ') {
+						if (finish == copy.length() - 1 || copy.charAt(finish + 1) == ' ') {
 							works = true;
 							numRemoved++;
 						}
 					}
+					copy = copy.substring(start + 1);
 				}
 				if (!works) {
 					// check if enough room to print on current line

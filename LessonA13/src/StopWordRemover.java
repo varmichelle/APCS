@@ -38,7 +38,6 @@ public class StopWordRemover {
 			Scanner in = new Scanner(new File(inFile));
 			FileWriter out = new FileWriter(new File(outFile));
 			int charsInLine = 0;
-			out.write(maxLineLength + "\n");
 			if (!in.hasNext()) System.out.println("Error: " + inFile + " is empty");
 			while (in.hasNext()) {
 				String word = in.next();
@@ -78,5 +77,9 @@ public class StopWordRemover {
 		} 
 		catch (IOException e) {}
 		return 0;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("wearing hoods, others bareheaded, assembled front".length());
 	}
 }

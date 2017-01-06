@@ -77,5 +77,6 @@ public class StopWordRemover {
 		} 
 		catch (FileNotFoundException e) {} 
 		catch (IOException e) {}
+		return 0;
 	}
 }

@@ -42,7 +42,7 @@ public class Average {
 			double average = (sum * 1.0) / count;
 			return average;
 		} catch (FileNotFoundException e) {
-			System.out.println("Error: " + fileName + " (No such file or directory");
+			System.out.println("Error: " + fileName + " (No such file or directory)");
 			return 0;
 		}		
 	}

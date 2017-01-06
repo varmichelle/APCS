@@ -25,22 +25,26 @@ public class Average {
 	 * @return average - average of numbers in file
 	 * @throws Exception - file is empty or does not have numeric data
 	 */
-	public double scanDataAndCalculateAverage() throws Exception {
+	public double scanDataAndCalculateAverage() throws NoSuchElementException {
 		File f = new File(fileName);
 		// check if file exists
-		if (!f.exists()) throw new Exception("Error: " + fileName + " (The system cannot find the file specified");
-		Scanner in = new Scanner(f);
-		// check if file is empty
-		if (!in.hasNext()) throw new Exception(fileName + " is empty");
-		long count = 0, sum = 0;
-		while (in.hasNextInt()) {
-			sum += in.nextInt();
-			count++;
-		}
-		// check if file has numerical data
-		if (count == 0) throw new Exception(fileName + " does not have numeric data");
-		double average = (sum * 1.0) / count;
-		return average;
+		try {
+			Scanner in = new Scanner(f);
+			// check if file is empty
+			if (!in.hasNext()) throw new NoSuchElementException(fileName + " is empty");
+			long count = 0, sum = 0;
+			while (in.hasNextInt()) {
+				sum += in.nextInt();
+				count++;
+			}
+			// check if file has numerical data
+			if (count == 0) throw new NoSuchElementException(fileName + " does not have numeric data");
+			double average = (sum * 1.0) / count;
+			return average;
+		} catch (FileNotFoundException e) {
+			System.out.println("Error: " + fileName + " (No such file or directory");
+			return 0;
+		}		
 	}
 	
 }

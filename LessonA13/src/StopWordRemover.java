@@ -33,6 +33,7 @@ public class StopWordRemover {
 	 * @return numRemoved - number of words removed
 	 */
 	public int removeStopWords() {
+		// try catch to handle file not found exception
 		try {
 			int numRemoved = 0;
 			Scanner in = new Scanner(new File(inFile));
@@ -44,7 +45,7 @@ public class StopWordRemover {
 				String lowerCase = word.toLowerCase();
 				String copy = stopList;
 				boolean works = false;
-				// check if word needs to be removed
+				// check if word needs to be removed 
 				while (copy.contains(lowerCase)) {
 					// make sure it's the whole word that matches 
 					int start = copy.indexOf(lowerCase);
@@ -59,7 +60,8 @@ public class StopWordRemover {
 				}
 				if (!works) {
 					// check if enough room to print on current line
-					if (charsInLine + word.length() + 1 <= maxLineLength) {
+					// add 1 to account for the space, and another for possible return character
+					if (charsInLine + word.length() + 2 <= maxLineLength) {
 						if (charsInLine > 0) out.write(" ");
 						out.write(word);
 						charsInLine += word.length() + 1;
@@ -77,9 +79,5 @@ public class StopWordRemover {
 		} 
 		catch (IOException e) {}
 		return 0;
-	}
-	
-	public static void main(String[] args) {
-		System.out.println("wearing hoods, others bareheaded, assembled front".length());
 	}
 }

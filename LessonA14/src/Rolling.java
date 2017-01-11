@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Rolling {
 	
-	private Random random;
+	Random random;
 
 	/**
 	 * Constructor to initialize seeded random number generator

@@ -41,7 +41,7 @@ public class Rolling {
 		 * r1 != r2 && r1 != r3 && r2 != r3 (all 3 dice are different)
 		 */
 		
-		System.out.println("count = " + rollCount);
+		System.out.println("Rolled " + rollCount + " times before all the rolls were different");
 	}
 	
 	/**

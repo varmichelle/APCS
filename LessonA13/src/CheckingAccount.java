@@ -1,5 +1,5 @@
 /**
- * Class ErrorCheck to handle bank account exceptions
+ * Class CheckingAccount to handle bank account exceptions
  * @author Michelle Li
  * Period 1
  *

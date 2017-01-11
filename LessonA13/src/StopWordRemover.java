@@ -1,5 +1,5 @@
 /**
- * Class RemoveStopWords to remove specified words from text file
+ * Class StopWordRemover to remove specified words from text file
  * @author Michelle Li
  * Period 1
  *

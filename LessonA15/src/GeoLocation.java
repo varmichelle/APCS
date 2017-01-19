@@ -15,6 +15,18 @@ public class GeoLocation {
 	private final int RADIUS = 3959;
 	
 	/**
+	 * Constructor to initialize instance variables
+	 * @param name - name of location
+	 * @param latitude - latitude in degrees
+	 * @param longitude - longitude in degrees
+	 */
+	public GeoLocation(String name, double latitude, double longitude) {
+		this.name = name;
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
+	
+	/**
 	 * Get name of location
 	 * @return name
 	 */

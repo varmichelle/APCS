@@ -9,9 +9,7 @@
 import java.util.*;
 
 public class WordList extends ArrayList<String> {
-
-	private ArrayList<String> list = new ArrayList<String>();
-	
+		
 	/**
 	 * Return the number of words in the wordlist that are exactly len long
 	 * @param len - length to check for
@@ -19,8 +17,8 @@ public class WordList extends ArrayList<String> {
 	 */
 	public int numWordsOfLength(int len) {
 		int count = 0;
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).length() == len) count++;
+		for (int i = 0; i < this.size(); i++) {
+			if (this.get(i).length() == len) count++;
 		}
 		return count;
 	}
@@ -30,9 +28,9 @@ public class WordList extends ArrayList<String> {
 	 * @param len - length to check for
 	 */
 	public void removeWordsOfLength(int len) {
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).length() == len) {
-				list.remove(i);
+		for (int i = 0; i < this.size(); i++) {
+			if (this.get(i).length() == len) {
+				this.remove(i);
 				i--;
 			}
 		}
@@ -44,8 +42,8 @@ public class WordList extends ArrayList<String> {
 	 */
 	public int lengthOfLongestWord() {
 		int max = -1;
-		for (int i = 0; i < list.size(); i++) {
-			int size = list.get(i).length();
+		for (int i = 0; i < this.size(); i++) {
+			int size = this.get(i).length();
 			if (size > max) max = size;
 		}
 		return max;

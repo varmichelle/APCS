@@ -38,22 +38,38 @@ public class Compact {
 		numbers = new int[MAX_NUMBERS];
 		readFile(fileName);
 		System.out.print("Before: ");
-		for (int i = 0; i < numberCount; i++) {
-			if (i != numberCount - 1) System.out.print(numbers[i] + " ");
-			else System.out.println(numbers[i]);
-		}
+		printArray();
 	}
 	
 	/**
 	 * Compact the array by overriding all 0s with the next element
 	 */
 	public void compactIt() {
-		for (int i = 0; i < numberCount; i++) {
-			if (i == 0) {
-				for (int j = i + 1; j < numberCount; j++) {
+		int copy = numberCount;
+		// loop through the array checking for 0s
+		for (int i = 0; i < copy; i++) {
+			// if 0, shift everything down by 1 index
+			if (numbers[i] == 0) {
+				for (int j = i + 1; j < copy; j++) {
 					numbers[j-1] = numbers[j];
 				}
+				// account for the shift in index
+				i--;
+				// to ensure the loop doesn't get stuck looping over the 0s at the end
+				copy--;
 			}
+		}
+		System.out.print("After: ");
+		printArray();
+	}
+	
+	/**
+	 * Private helper method to print the array 
+	 */
+	private void printArray() {
+		for (int i = 0; i < numberCount; i++) {
+			if (i != numberCount - 1) System.out.print(numbers[i] + " ");
+			else System.out.println(numbers[i]);
 		}
 	}
 	

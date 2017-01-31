@@ -132,7 +132,7 @@ public class Student2 {
 	public String toString() {
 		String s = "Name: " + name + ": ";
 		for (int i = 0; i < NUM_TESTS; i++) {
-			s += "test " + i + ": " + testScores.get(i) + " ";
+			s += "test " + (i+1) + ": " + testScores.get(i) + " ";
 		}
 		s += "Average: " + getAverage() + " High score: " + getHighScore();
 		return s;

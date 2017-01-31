@@ -90,6 +90,7 @@ public class School2 {
 	 * @param newStudent - replacement student
 	 */
 	public void replace(int index, Student2 newStudent) {
+		remove(newStudent.getName());
 		students.set(index, newStudent);
 	}
 	
@@ -101,7 +102,10 @@ public class School2 {
 		int max = 0;
 		Student2 bestStudent = new Student2();
 		for (int i = 0; i < students.size(); i++) {
-			if (students.get(i).getHighScore() > max) bestStudent = students.get(i);
+			if (students.get(i).getHighScore() > max) {
+				max = students.get(i).getHighScore();
+				bestStudent = students.get(i);
+			}
 		}
 		return bestStudent;
 	}

@@ -145,7 +145,14 @@ public class School2 {
 	 * @return data in String form
 	 */
 	public String toString() {
-		return "";
+		String s = "";
+		for (int i = 0; i < students.size(); i++) {
+			s += students.get(i).toString() + "\n";
+		}
+		s += "Class average: " + getClassAverage() + "\n";
+		s += "Highest score\n";
+		s += getHighScore() + "\n";
+		return s;
 	}
 	
 }

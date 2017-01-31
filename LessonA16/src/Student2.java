@@ -80,7 +80,7 @@ public class Student2 {
 	 * @param score - the score to set
 	 */
 	public void setScore(int test, int score) {
-		System.out.println("index: " + test);
+		if (test > 3) test = 3;
 		testScores.set(test-1, score);
 	}
 	
@@ -100,6 +100,7 @@ public class Student2 {
 	 * @return testScores[test] - the test score requested
 	 */
 	public int getScore(int test) {
+		if (test > 3) test = 3;
 		return testScores.get(test-1);
 	}
 	
@@ -129,7 +130,12 @@ public class Student2 {
 	 * @return data in string form
 	 */
 	public String toString() {
-		return "";
+		String s = "Name: " + name + ": ";
+		for (int i = 0; i < NUM_TESTS; i++) {
+			s += "test " + i + ": " + testScores.get(i) + " ";
+		}
+		s += "Average: " + getAverage() + " High score: " + getHighScore();
+		return s;
 	}
 	
 }

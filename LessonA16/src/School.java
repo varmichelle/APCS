@@ -152,7 +152,14 @@ public class School {
 	 * @return data in String form
 	 */
 	public String toString() {
-		return "";
+		String s = "";
+		for (int i = 0; i < numStudents; i++) {
+			s += students[i].toString() + "\n";
+		}
+		s += "Class average: " + getClassAverage() + "\n";
+		s += "Highest score\n";
+		s += getHighScore() + "\n";
+		return s;
 	}
 	
 }

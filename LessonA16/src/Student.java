@@ -78,6 +78,7 @@ public class Student {
 	 * @param score - the score to set
 	 */
 	public void setScore(int test, int score) {
+		if (test > 3) test = 3;
 		testScores[test-1] = score;
 	}
 	
@@ -97,6 +98,7 @@ public class Student {
 	 * @return testScores[test] - the test score requested
 	 */
 	public int getScore(int test) {
+		if (test > 3) test = 3;
 		return testScores[test-1];
 	}
 	
@@ -126,7 +128,12 @@ public class Student {
 	 * @return data in string form
 	 */
 	public String toString() {
-		return "";
+		String s = "Name: " + name + ": ";
+		for (int i = 0; i < NUM_TESTS; i++) {
+			s += "test " + i + ": " + testScores[i] + " ";
+		}
+		s += "Average: " + getAverage() + " High score: " + getHighScore();
+		return s;
 	}
 	
 }

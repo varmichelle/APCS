@@ -97,7 +97,6 @@ public class School {
 	 * @param newStudent - replacement student
 	 */
 	public void replace(int index, Student newStudent) {
-		remove(newStudent.getName());
 		students[index] = newStudent;
 	}
 	
@@ -136,6 +135,10 @@ public class School {
 	 * @return the student located at that index
 	 */
 	public Student getStudent(int index) {
+		if (index >= numStudents) {
+			System.out.println("No such student");
+			return new Student();
+		}
 		return students[index];
 	}
 	

@@ -9,8 +9,7 @@ import java.util.*;
 
 public class School2 {
 
-	// instance variables
-	private final int MAX_STUDENTS = 10;
+	// instance variable
 	private ArrayList<Student2> students = new ArrayList<Student2>();
 	
 	/**
@@ -90,7 +89,6 @@ public class School2 {
 	 * @param newStudent - replacement student
 	 */
 	public void replace(int index, Student2 newStudent) {
-		remove(newStudent.getName());
 		students.set(index, newStudent);
 	}
 	
@@ -129,6 +127,10 @@ public class School2 {
 	 * @return the student located at that index
 	 */
 	public Student2 getStudent(int index) {
+		if (index >= students.size()) {
+			System.out.println("No such student");
+			return new Student2();
+		}
 		return students.get(index);
 	}
 	

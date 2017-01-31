@@ -84,6 +84,16 @@ public class Student2 {
 	}
 	
 	/**
+	 * Sets the test scores of the student
+	 * @param scores - array of scores to set
+	 */
+	public void setScore(ArrayList<Integer> scores) {
+		for (int i = 0; i < NUM_TESTS; i++) {
+			testScores.set(i, scores.get(i));
+		}
+	}
+	
+	/**
 	 * Get the test score of the student
 	 * @param test - index of test score to get
 	 * @return testScores[test] - the test score requested

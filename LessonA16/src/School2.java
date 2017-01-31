@@ -129,7 +129,7 @@ public class School2 {
 	public Student2 getStudent(int index) {
 		if (index >= students.size()) {
 			System.out.println("No such student");
-			return new Student();
+			return new Student2();
 		}
 		return students.get(index);
 	}

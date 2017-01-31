@@ -78,7 +78,7 @@ public class Student {
 	 * @param score - the score to set
 	 */
 	public void setScore(int test, int score) {
-		testScores[test] = score;
+		testScores[test-1] = score;
 	}
 	
 	/**
@@ -97,7 +97,7 @@ public class Student {
 	 * @return testScores[test] - the test score requested
 	 */
 	public int getScore(int test) {
-		return testScores[test];
+		return testScores[test-1];
 	}
 	
 	/**

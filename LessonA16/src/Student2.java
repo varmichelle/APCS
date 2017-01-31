@@ -80,7 +80,8 @@ public class Student2 {
 	 * @param score - the score to set
 	 */
 	public void setScore(int test, int score) {
-		testScores.set(test, score);
+		System.out.println("index: " + test);
+		testScores.set(test-1, score);
 	}
 	
 	/**
@@ -99,7 +100,7 @@ public class Student2 {
 	 * @return testScores[test] - the test score requested
 	 */
 	public int getScore(int test) {
-		return testScores.get(test);
+		return testScores.get(test-1);
 	}
 	
 	/**

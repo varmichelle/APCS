@@ -73,6 +73,7 @@ public class School2 {
 		for (int i = 0; i < students.size(); i++) {
 			if (students.get(i).getName().equals(name)) {
 				students.remove(i);
+				break;
 			}
 		}
 	}

@@ -60,7 +60,9 @@ public class School {
 				for (int j = i+1; j < numStudents; j++) {
 					students[j-1] = students[j];
 				}
-				students[numStudents - 1] = null;
+				students[numStudents - 1] = new Student();
+				numStudents--;
+				break;
 			}
 		}
 	}
@@ -73,7 +75,8 @@ public class School {
 		for (int i = index + 1; i < numStudents; i++) {
 			students[i-1] = students[i];
 		}
-		students[numStudents - 1] = null;
+		students[numStudents - 1] = new Student();
+		numStudents--;
 	}
 	
 	/**
@@ -86,7 +89,9 @@ public class School {
 				for (int j = i+1; j < numStudents; j++) {
 					students[j-1] = students[j];
 				}
-				students[numStudents - 1] = null;
+				students[numStudents - 1] = new Student();
+				numStudents--;
+				break;
 			}
 		}
 	}

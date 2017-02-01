@@ -60,7 +60,7 @@ public class School {
 				for (int j = i+1; j < numStudents; j++) {
 					students[j-1] = students[j];
 				}
-				students[numStudents - 1] = new Student();
+				students[numStudents - 1] = null;
 			}
 		}
 	}
@@ -73,7 +73,7 @@ public class School {
 		for (int i = index + 1; i < numStudents; i++) {
 			students[i-1] = students[i];
 		}
-		students[numStudents - 1] = new Student();
+		students[numStudents - 1] = null;
 	}
 	
 	/**
@@ -86,7 +86,7 @@ public class School {
 				for (int j = i+1; j < numStudents; j++) {
 					students[j-1] = students[j];
 				}
-				students[numStudents - 1] = new Student();
+				students[numStudents - 1] = null;
 			}
 		}
 	}
@@ -135,10 +135,7 @@ public class School {
 	 * @return the student located at that index
 	 */
 	public Student getStudent(int index) {
-		if (index >= numStudents) {
-			System.out.println("No such student");
-			return new Student();
-		}
+		if (index >= numStudents) return null;
 		return students[index];
 	}
 	
@@ -151,7 +148,7 @@ public class School {
 		for (int i = 0; i < numStudents; i++) {
 			if (students[i].getName().equals(name)) return students[i];
 		}
-		return new Student();
+		return null;
 	}
 	
 	/**

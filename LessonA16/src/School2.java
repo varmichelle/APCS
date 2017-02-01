@@ -121,10 +121,7 @@ public class School2 {
 	 * @return the student located at that index
 	 */
 	public Student2 getStudent(int index) {
-		if (index >= students.size()) {
-			System.out.println("No such student");
-			return new Student2();
-		}
+		if (index >= students.size()) return null;
 		return students.get(index);
 	}
 	
@@ -137,7 +134,7 @@ public class School2 {
 		for (int i = 0; i < students.size(); i++) {
 			if (students.get(i).getName().equals(name)) return students.get(i);
 		}
-		return new Student2();
+		return null;
 	}
 	
 	/**

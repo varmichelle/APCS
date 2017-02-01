@@ -51,9 +51,8 @@ public class School2 {
 	public void remove(Student2 s) {
 		for (int i = 0; i < students.size(); i++) {
 			if (students.get(i) == s) {
-				for (int j = i+1; j < students.size(); j++) {
-					students.set(j-1, students.get(j));
-				}
+				students.remove(i);
+				break;
 			}
 		}
 	}
@@ -63,9 +62,7 @@ public class School2 {
 	 * @param index - index of student to remove
 	 */
 	public void remove(int index) {
-		for (int i = index + 1; i < students.size(); i++) {
-			students.set(i-1, students.get(i));
-		}
+		students.remove(index);
 	}
 	
 	/**
@@ -75,10 +72,7 @@ public class School2 {
 	public void remove(String name) {
 		for (int i = 0; i < students.size(); i++) {
 			if (students.get(i).getName().equals(name)) {
-				for (int j = i+1; j < students.size(); j++) {
-					students.set(j-1, students.get(j));
-				}
-				students.set(students.size()-1, new Student2());
+				students.remove(i);
 			}
 		}
 	}

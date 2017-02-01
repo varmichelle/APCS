@@ -17,6 +17,7 @@ public class Eratosthenes {
 	 * @param n - all primes are less than or equal to n
 	 */
 	public Eratosthenes (int n) {
+		numbers = new int[n-1];
 		for (int i = 2; i <= n; i++) {
 			numbers[i-2] = i;
 		}

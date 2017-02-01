@@ -28,22 +28,17 @@ public class Goldbach {
 	 * @return string with the all the prime pairs that add up to N
 	 */
 	public String sumOfTwoPrimes() {
-		String[] answers = new String[N+1];
 		int[] primes = e.listOfPrimes();
+		String s = N + "";
 		for (int p1 = 0; p1 < primes.length; p1++) {
 			for (int p2 = p1; p2 < primes.length; p2++) {
 				int sum = primes[p1] + primes[p2];
-				if (answers[sum].equals("")) {
-					String s = sum + " = " + primes[p1] + " + " + primes[p2];
-					answers[sum] = s;
+				if (sum == N) {
+					s += " = " + primes[p1] + " + " + primes[p2];
 				}
 			}
 		}
-		String s = "";
-		for (int i = 2; i <= N; i++) {
-			if (answers[i].equals("")) s += i + " not expressible as sum of two primes";
-			else s += answers[i];
-		}
+		if (s.equals(N + "")) s += " not expressible as sum of two primes";
 		return s;
 	}
 }

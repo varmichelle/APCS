@@ -18,21 +18,24 @@ public class Life {
 	 * reads in the data from the given file and sets up the 
 	 * life matrix
 	 * @param fname - name of file
-	 * @throws FileNotFoundException 
 	 */
-	public Life(String fname) throws FileNotFoundException {
+	public Life(String fname) {
 		grid = new char[20][20];
-		Scanner in = new Scanner(new File(fname));
-		int N = in.nextInt();
-		for (int i = 0; i < 20; i++) {
-			for (int j = 0; j < 20; j++) {
-				grid[i][j] = ' ';
+		try {
+			Scanner in = new Scanner(new File(fname));
+			int N = in.nextInt();
+			for (int i = 0; i < 20; i++) {
+				for (int j = 0; j < 20; j++) {
+					grid[i][j] = ' ';
+				}
 			}
-		}
-		for (int i = 0; i < N; i++) {
-			int row = in.nextInt();
-			int col = in.nextInt();
-			grid[row][col] = '*';
+			for (int i = 0; i < N; i++) {
+				int row = in.nextInt()-1;
+				int col = in.nextInt()-1;
+				grid[row][col] = '*';
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 	}
 	
@@ -40,7 +43,9 @@ public class Life {
 	 * Method to print the life matrix
 	 */
 	public void printMatrix() {
+		System.out.println("      12345678901234567890\n");
 		for (int i = 0; i < 20; i++) {
+			System.out.printf("%-7s", i+1);
 			for (int j = 0; j < 20; j++) {
 				System.out.print(grid[i][j]);
 			}
@@ -55,17 +60,16 @@ public class Life {
 	 * @param col - column number
 	 * @return - number of neighbors of the given cell
 	 */
-	public int numberOfNeighbors(int row, int col) {
+	public int numberOfNeighbors(char[][] copy, int row, int col) {
 		int count = 0;
 		for (int i = 0; i < 8; i++) {
 			int newRow = row + dy[i];
 			int newCol = col + dx[i];
 			if (newRow >= 0 && newRow < 20 && newCol >= 0 && newCol < 20) {
-				if (grid[newRow][newCol] == '*') count++;
+				if (copy[newRow][newCol] == '*') count++;
 			}
 		}
 		return count;
-		
 	}
 	
 	/**
@@ -74,8 +78,8 @@ public class Life {
 	 * @param col - cell column number
 	 * @return true if it is empty, false otherwise
 	 */
-	private boolean isEmpty(int row, int col) {
-		if (grid[row][col] == ' ') return true;
+	private boolean isEmpty(char[][] copy, int row, int col) {
+		if (copy[row][col] == ' ') return true;
 		else return false;
 	}
 	
@@ -83,8 +87,19 @@ public class Life {
 	 * Method that simulates the game of life
 	 */
 	public void generation() {
-		//Your code goes here
-
+		char[][] copy = new char[20][20];
+		for (int row = 0; row < 20; row++) {
+			for (int col = 0; col < 20; col++) {
+				copy[row][col] = grid[row][col];
+			}
+		}
+		for (int row = 0; row < 20; row++) {
+			for (int col = 0; col < 20; col++) {
+				int numNeighbors = numberOfNeighbors(copy,row,col);
+				if (numNeighbors == 3 && isEmpty(copy,row,col)) grid[row][col] = '*';
+				if (numNeighbors < 2 || numNeighbors > 3) grid[row][col] = ' ';
+			}
+		}
 	}
 	
 	/**
@@ -93,20 +108,20 @@ public class Life {
 	public void printStatistics() {
 		int rowCount = 0;
 		for (int i = 0; i < 20; i++) {
-			if (!isEmpty(10,i)) rowCount++;
+			if (!isEmpty(grid,9,i)) rowCount++;
 		}
-		System.out.println("Number in Row 10 ---> " + rowCount + "\n");
+		System.out.println("Number in Row 10 ---> " + rowCount);
 		int colCount = 0;
 		for (int i = 0; i < 20; i++) {
-			if (!isEmpty(i,20)) colCount++;
+			if (!isEmpty(grid,i,9)) colCount++;
 		}
-		System.out.println("Number in Column 10 ---> " + colCount + "\n");
+		System.out.println("Number in Column 10 ---> " + colCount);
 		int totalCount = 0;
 		for (int row = 0; row < 20; row++) {
 			for (int col = 0; col < 20; col++) {
-				if (!isEmpty(row, col)) totalCount++;
+				if (!isEmpty(grid,row, col)) totalCount++;
 			}
 		}
-		System.out.println("Number of living organisms ---> " + totalCount + "\n");
+		System.out.println("Number of living organisms ---> " + totalCount);
 	}
 }

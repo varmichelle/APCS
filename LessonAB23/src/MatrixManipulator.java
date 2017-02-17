@@ -191,7 +191,7 @@ public class MatrixManipulator {
         padded = imageSmootherEasy(padded);
         for (int row = 0; row < image.length; row++) {
         	for (int col = 0; col < image.length; col++) {
-        		image[row][col] = padded[row+1][col+1];
+        		smooth[row][col] = padded[row+1][col+1];
         	}
         }
         return smooth;

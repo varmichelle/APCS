@@ -143,6 +143,7 @@ public class MatrixManipulator {
     		String s = "";
     		for (int col = data[row].length-1; col >= 0; col--) {
     			s += data[row][col];
+    			if (col != 0) s += " ";
     		}
     		System.out.println(s);
     	}
@@ -166,7 +167,7 @@ public class MatrixManipulator {
         }
         for (int row = 1; row < image.length-1; row++) {
         	for (int col = 1; col < image[row].length-1; col++) {
-        		for (int i = 0; i < 9; i++) smooth[row][col] = image[row+dy[i]][col+dx[i]];
+        		for (int i = 0; i < 9; i++) smooth[row][col] += image[row+dy[i]][col+dx[i]];
         		smooth[row][col] /= 9;
         	}
         }

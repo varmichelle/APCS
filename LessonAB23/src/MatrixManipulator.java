@@ -11,6 +11,8 @@ import java.io.*;
 public class MatrixManipulator {
    
 	Scanner scan;
+	private int[] dx = {-1,0,1,1,1,0,-1,-1,0};
+	private int[] dy = {-1,-1,-1,0,1,1,1,0,0};
 
 	/**
 	 * Constructor to initialize scanner
@@ -132,55 +134,66 @@ public class MatrixManipulator {
         return largestInRow;
     }
 
-
     /**
-     * Put Description here
+     * Print reverse of each row
+     * @param data - array whose elements are to be printed
      */
-    public void reversalOfElementsInEachRow( int[][] data )
-    {
-    	// reverse each row and print it
-
+    public void reversalOfElementsInEachRow(int[][] data) {
+    	for (int row = 0; row < data.length; row++) {
+    		String s = "";
+    		for (int col = data[row].length-1; col >= 0; col--) {
+    			s += data[row][col];
+    		}
+    		System.out.println(s);
+    	}
     }
 
-
     /**
-     * Put Description here
+     * Smooth the inner elements of an image
+     * @param image - 2D array to smooth
+     * @return smoothed image
      */
-    public int[][] imageSmootherEasy( int[][] image )
-    {
+    public int[][] imageSmootherEasy(int[][] image) {
         // assume a rectangular image
         int[][] smooth = new int[image.length][image[0].length];
-
-        // Compute the smoothed value for
-        // non-edge locations in the image.
-
-
-
-        
-
-
-
+        for (int col = 0; col < image[0].length; col++) {
+        	smooth[0][col] = image[0][col];
+        	smooth[smooth.length-1][col] = image[image.length-1][col];
+        }
+        for (int row = 1; row < image.length-1; row++) {
+        	smooth[row][0] = image[row][0];
+        	smooth[row][image[0].length-1] = image[row][image[0].length-1];
+        }
+        for (int row = 1; row < image.length-1; row++) {
+        	for (int col = 1; col < image[row].length-1; col++) {
+        		for (int i = 0; i < 9; i++) smooth[row][col] = image[row+dy[i]][col+dx[i]];
+        		smooth[row][col] /= 9;
+        	}
+        }
         return smooth;
     }
 
-
     /**
-     * Put Description here
+     * Smooth the entirety of an image
+     * @param image - 2D array to smooth
+     * @return smoothed image
      */
-    public int[][] imageSmootherHard( int[][] image )
-    {
+    public int[][] imageSmootherHard(int[][] image) {
         // assume a rectangular image
         int[][] smooth = new int[image.length][image[0].length];
-
-        // Compute the smoothed value for all 
-        // locations in the image.
-
-        
-
-       
+        int[][] padded = new int[image.length+2][image[0].length+2];
+        for (int row = 0; row < image.length; row++) {
+        	for (int col = 0; col < image.length; col++) {
+        		padded[row+1][col+1] = image[row][col];
+        	}
+        }
+        padded = imageSmootherEasy(padded);
+        for (int row = 0; row < image.length; row++) {
+        	for (int col = 0; col < image.length; col++) {
+        		image[row][col] = padded[row+1][col+1];
+        	}
+        }
         return smooth;
     }
-
-
 
 }

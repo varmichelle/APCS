@@ -7,7 +7,7 @@
 import java.util.*;
 
 public class Number {
-
+	
 	private int base, value;
 	private ArrayList<Digit> digits = new ArrayList<Digit>();
 	
@@ -42,15 +42,17 @@ public class Number {
 			copy %= divideBy;
 			divideBy /= base;
 		}
+		if (value == 0) digits.add(new Digit(0, base));
 	}
-	
+		
 	/**
 	 * Convert the number into a format for printing
 	 */
 	public String toString() {
 		String s = "";
 		for (int i = 0; i < digits.size(); i++) {
-			s += digits.get(i);
+			if (digits.get(i).getValue() < 10) s += digits.get(i);
+			else s += (char) ('A' + digits.get(i).getValue() - 10);
 		}
 		return s;
 	}

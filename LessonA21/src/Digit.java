@@ -40,10 +40,17 @@ public class Digit {
 	 * @return true if there is a carry (false otherwise)
 	 */
 	public boolean increment() {
-		value += 1;
+		value++;
 		value %= base;
 		if (value == 0) return true;
 		else return false;		
 	}
 	
+	/**
+	 * Getter method for value
+	 * @return value
+	 */
+	public int getValue() {
+		return value;
+	}
 }

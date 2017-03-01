@@ -36,6 +36,7 @@ public class Number {
 			numDigits++;
 			divideBy *= base;
 		}
+		divideBy /= base;
 		copy = value;
 		for (int i = 0; i < numDigits; i++) {
 			digits.add(new Digit (copy / divideBy, base));

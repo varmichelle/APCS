@@ -7,6 +7,7 @@ import java.util.*;
  *
  */
 public class SortStep {
+	
 	private Scanner console;
 	private ArrayList<Comparable> myArray;
 	private Sorts mySorts;
@@ -31,7 +32,6 @@ public class SortStep {
 	public void sortMenu() {
 		String choice;
 		String print;
-
 		do {
 			System.out.println();
 			System.out.println("Sorting algorithm menu");
@@ -50,9 +50,7 @@ public class SortStep {
 			System.out.println("choice = " + choice);
 			if ('1' <= choice.charAt(0) && choice.charAt(0) <= '7') {
 				System.out.println();
-
 				mySorts.setStepCount(0);
-
 				switch (choice.charAt(0)) {
 				case '1':
 					resetArray();

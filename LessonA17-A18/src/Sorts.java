@@ -59,7 +59,7 @@ public class Sorts {
 		System.out.println();
 		for (int i = 1; i < list.size(); i++) {
 			Comparable val = list.get(i);
-			for (int j = 1; j < i; j++) {
+			for (int j = 0; j < i; j++) {
 				if (val.compareTo(list.get(j)) < 0) {
 					list.remove(i);
 					list.add(j, val);

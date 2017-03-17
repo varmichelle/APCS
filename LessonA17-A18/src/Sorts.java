@@ -162,7 +162,7 @@ public class Sorts {
 		int i = first, j = last;
 		// 1 get
 		steps++;
-		Comparable pivot = a.get(first);
+		Comparable pivot = a.get((first + last) / 2);
 		while (i <= j) {
 			// 2 gets, 2 compares
 			steps += 4;

@@ -159,19 +159,19 @@ public class Sorts {
 	 * @param last - ending index of range of values to be sorted
 	 */
 	public void quickSort(ArrayList<Comparable> a, int first, int last) {
-		if (first >= last) return;
+		int i = first, j = last;
 		Comparable pivot = a.get(first);
-		int leftWall = first;
-		for (int i = first + 1; i < last; i++) {
-			if (a.get(i).compareTo(pivot) < 0) {
-				swap(a, i, leftWall);
-				leftWall++;
+		while (i <= j) {
+			while (a.get(i).compareTo(pivot) < 0) i++;
+			while (a.get(j).compareTo(pivot) > 0) j--;
+			if (i <= j) {
+				swap(a, i, j);
+				i++;
+				j--;
 			}
 		}
-		swap(a, first, leftWall);
-		int pivotLocation = leftWall;
-		quickSort(a, first, pivotLocation);
-		quickSort(a, pivotLocation + 1, last);
+		if (first < j) quickSort(a, first, j);
+		if (i < last) quickSort(a, i, last);
 	}
 
 	/**

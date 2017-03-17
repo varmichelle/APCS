@@ -160,8 +160,12 @@ public class Sorts {
 	 */
 	public void quickSort(ArrayList<Comparable> a, int first, int last) {
 		int i = first, j = last;
+		// 1 get
+		steps++;
 		Comparable pivot = a.get(first);
 		while (i <= j) {
+			// 2 gets, 2 compares
+			steps += 4;
 			while (a.get(i).compareTo(pivot) < 0) i++;
 			while (a.get(j).compareTo(pivot) > 0) j--;
 			if (i <= j) {

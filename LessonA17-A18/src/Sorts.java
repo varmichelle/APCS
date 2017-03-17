@@ -90,7 +90,52 @@ public class Sorts {
 	 * @param last - last index of range of values to be sorted
 	 */
 	private void merge(ArrayList<Comparable> a, int first, int mid, int last) {
-		
+		int numElementsAdded = 0;
+		ArrayList<Comparable> a1 = new ArrayList<Comparable>();
+		for (int i = first; i <= mid; i++) {
+			// 1 add, 1 get, 1 remove
+			steps += 3;
+			a1.add(a.get(first));
+			a.remove(first);
+		}
+		ArrayList<Comparable> a2 = new ArrayList<Comparable>();
+		for (int i = mid + 1; i <= last; i++) {
+			// 1 add, 1 get, 1 remove
+			steps += 3;
+			a2.add(a.get(first));
+			a.remove(first);
+		}
+		while (a1.size() > 0 && a2.size() > 0) {
+			// 2 gets, 1 compare
+			steps += 3;
+			if (a1.get(0).compareTo(a2.get(0)) > 0) {
+				// 1 add, 1 get, 1 remove
+				steps += 3;
+				a.add(first + numElementsAdded, a2.get(0));
+				a2.remove(0);
+				numElementsAdded++;
+			} else {
+				// 1 add, 1 get, 1 remove
+				steps += 3;
+				a.add(first + numElementsAdded, a1.get(0));
+				a1.remove(0);
+				numElementsAdded++;
+			}
+		}
+		while (a1.size() > 0) {
+			// 1 add, 1 get, 1 remove
+			steps += 3;
+			a.add(first + numElementsAdded, a1.get(0));
+			a1.remove(0);
+			numElementsAdded++;
+		}
+		while (a2.size() > 0) {
+			// 1 add, 1 get, 1 remove
+			steps += 3;
+			a.add(first + numElementsAdded, a2.get(0));
+			a2.remove(0);
+			numElementsAdded++;
+		}
 	}
 
 	/**
@@ -100,7 +145,11 @@ public class Sorts {
 	 * @param last - ending index of range of values to be sorted
 	 */
 	public void mergeSort(ArrayList<Comparable> a, int first, int last) {
-
+		if (last - first < 1) return;
+		mergeSort(a, first, (first + last)/2);
+		mergeSort(a, (first + last)/2 + 1, last);
+		// steps included in merge method
+		merge(a, first, (first + last)/2, last);
 	}
 
 	/**

@@ -26,7 +26,10 @@ public class Sorts {
 		System.out.println("Bubble Sort");
 		System.out.println();
 		for (int i = 0; i < list.size() - 1; i++) {
-			for (int j = 0; j < list.size() - 1; j++) {
+			for (int j = 0; j < list.size() - i - 1; j++) {
+				// 2 gets and 1 compare
+				steps += 3;
+				// steps for swap are incremented in the swap method
 				if (list.get(j).compareTo(list.get(j+1)) > 0) swap(list, j, j+1);
 			}
 		}
@@ -43,8 +46,11 @@ public class Sorts {
 		for (int i = 0; i < list.size() - 1; i++) {
 			int min = i;
 			for (int j = i+1; j < list.size(); j++) {
+				// 2 gets and 1 compare
+				steps += 3;
 				if (list.get(j).compareTo(list.get(min)) < 0) min = j;
 			}
+			// steps incremented in swap method
 			swap(list, min, i);
 		}
 	}
@@ -58,9 +64,13 @@ public class Sorts {
 		System.out.println("Insertion Sort");
 		System.out.println();
 		for (int i = 1; i < list.size(); i++) {
+			// 2 gets and 1 compare
+			steps += 3;
 			Comparable val = list.get(i);
 			for (int j = 0; j < i; j++) {
 				if (val.compareTo(list.get(j)) < 0) {
+					// 1 add and 1 remove
+					steps += 2;
 					list.remove(i);
 					list.add(j, val);
 					break;
@@ -126,6 +136,7 @@ public class Sorts {
 	 * @param b - index of integer to be swapped
 	 */
 	public void swap(ArrayList<Comparable> list, int a, int b) {
+		steps += 4;
 		Comparable temp = list.get(a);
 		list.set(a, list.get(b));
 		list.set(b, temp);

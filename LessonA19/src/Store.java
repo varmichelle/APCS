@@ -127,5 +127,51 @@ public class Store {
 		mergeSort(a, (first + last)/2 + 1, last);
 		merge(a, first, (first + last)/2, last);
 	}
+	/**
+	 * Testing search algorithm
+	 */
+	public void testSearch(){ 
+	    int idToFind; 
+	    int invReturn; 
+	    int index; 
+	    Scanner in = new Scanner(System.in); 
+	    System.out.println("Testing search algorithm\n"); 
+	    do{ 
+	        System.out.println(); 
+	        System.out.print("Enter Id value to search for (-1 to quit) ---> "); 
+	        idToFind = in.nextInt(); 
+	        if (idToFind >= 0) { 
+	           //index = bsearch(new Item(idToFind, 0)); 
+	           //recursive version call 
+	           index = bsearch (new Item(idToFind, 0), 0, myStore.size()-1); 
+	           System.out.print("Id # " + idToFind); 
+	           if (index == -1){ 
+	                System.out.println(" No such part in stock"); 
+	            }else{ 
+	                System.out.println(" Inventory = " + myStore.get(index).getInv()); 
+	            } 
+	        } 
+	    } while (idToFind >= 0); 
+	} 
+	
+	/** 
+	* Searches myStore for the specified item using recursive binary search 
+	* @param idToSearch - Item object containing id value being searched for 
+	* @return index of Item if found, -1 if not found 
+	*/ 
+	private int bsearch(Item idToSearch){ 
+	    return -1; 
+	}
+	
+	/** 
+	* Searches the specified ArrayList for the specified id using recursive binary search 
+	* @param idToSearch - Id value being search for 
+	* @param first - Starting index of search range 
+	* @param last - Ending index of search range 
+	* @return index of Item if found, -1 if not found 
+	*/ 
+	private int bsearch(Item idToSearch, int first, int last){ 
+	    return -1; 
+	}
 	
 }

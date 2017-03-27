@@ -127,6 +127,7 @@ public class Store {
 		mergeSort(a, (first + last)/2 + 1, last);
 		merge(a, first, (first + last)/2, last);
 	}
+	
 	/**
 	 * Testing search algorithm
 	 */
@@ -138,13 +139,13 @@ public class Store {
 	    System.out.println("Testing search algorithm\n"); 
 	    do{ 
 	        System.out.println(); 
-	        System.out.print("Enter Id value to search for (-1 to quit) ---> "); 
+	        System.out.print("Enter Id value to search for (-1 to quit) --> "); 
 	        idToFind = in.nextInt(); 
 	        if (idToFind >= 0) { 
 	           //index = bsearch(new Item(idToFind, 0)); 
 	           //recursive version call 
 	           index = bsearch (new Item(idToFind, 0), 0, myStore.size()-1); 
-	           System.out.print("Id # " + idToFind); 
+	           System.out.print("Id # " + idToFind + ":"); 
 	           if (index == -1){ 
 	                System.out.println(" No such part in stock"); 
 	            }else{ 
@@ -155,11 +156,20 @@ public class Store {
 	} 
 	
 	/** 
-	* Searches myStore for the specified item using recursive binary search 
+	* Searches myStore for the specified item using iterative binary search 
 	* @param idToSearch - Item object containing id value being searched for 
 	* @return index of Item if found, -1 if not found 
 	*/ 
-	private int bsearch(Item idToSearch){ 
+	private int bsearch(Item idToSearch){
+		int low = 0, high = myStore.size() - 1, mid = (low + high) / 2;
+		int id = idToSearch.getId();
+		while (low < high) {
+			mid = (low + high) / 2;
+			int currentId = myStore.get(mid).getId();
+			if (currentId == id) return mid;
+			else if (currentId < id) low = mid + 1;
+			else if (currentId > id) high = mid - 1;
+		}
 	    return -1; 
 	}
 	
@@ -171,6 +181,13 @@ public class Store {
 	* @return index of Item if found, -1 if not found 
 	*/ 
 	private int bsearch(Item idToSearch, int first, int last){ 
+		if (first > last) return -1;
+		int mid = (first + last) / 2;
+		int id = idToSearch.getId();
+		int currentId = myStore.get(mid).getId();
+		if (currentId == id) return mid;
+		else if (currentId < id) return bsearch(idToSearch, mid + 1, last);
+		else if (currentId > id) return bsearch(idToSearch, first, mid - 1);
 	    return -1; 
 	}
 	

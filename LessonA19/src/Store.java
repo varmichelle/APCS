@@ -13,14 +13,25 @@ public class Store {
 
 	private ArrayList<Item> myStore = new ArrayList<Item>();
 	
+	/**
+	 * Default constructor to call loadFile with file50.txt
+	 */
 	public Store() {
-		
+		loadFile("file50.txt");
 	}
 	
+	/**
+	 * Constructor to load given file
+	 * @param fName - file to load and read input from
+	 */
 	public Store(String fName) {
 		loadFile(fName);
 	}
 	
+	/**
+	 * Load file and populate myStore with input, then sort by ID
+	 * @param fName - file to load and read input from
+	 */
 	public void loadFile(String fName) {
 		try {
 			Scanner in = new Scanner(new File(fName));
@@ -32,19 +43,44 @@ public class Store {
 		}
 	}
 	
+	/**
+	 * Wrapper method to sort the arraylist by calling mergeSort
+	 */
 	public void sort() {
-		System.out.println(myStore.size());
-		merge(myStore, 0, myStore.size()/2, myStore.size() - 1);
+		mergeSort(myStore, 0, myStore.size() - 1);
 	}
 	
+	/**
+	 * Return data in string format
+	 * @return data in string format
+	 */
 	public String toString() {
-		
+		String s = "";
+		s += String.format("%10s", "Id");
+		s += String.format("%10s\n\n", "Inv");
+		for (int i = 0; i < myStore.size(); i++) {
+			s += String.format("%2d", i+1);
+			s += String.format("%10d", myStore.get(i).getId());
+			s += String.format("%10d\n", myStore.get(i).getInv());
+			if ((i+1) % 10 == 0) s += "\n";
+		}
+		return s;
 	}
 	
+	/**
+	 * Display the store in a nice table
+	 */
 	public void displayStore() {
-		
+		System.out.println(toString());
 	}
 	
+	/**
+	 * Helper method for mergesort, merges two arrays together
+	 * @param a - arraylist to merge from
+	 * @param first - index of first item to merge
+	 * @param mid - index of middle item to merge
+	 * @param last - index of last item to merge
+	 */
 	private void merge(ArrayList<Item> a, int first, int mid, int last) {
 		int numElementsAdded = 0;
 		ArrayList<Item> a1 = new ArrayList<Item>();
@@ -80,6 +116,12 @@ public class Store {
 		}
 	}
 
+	/**
+	 * Mergesorts the arraylist myStore
+	 * @param a - arraylist to sort
+	 * @param first - index of first item to mergesort
+	 * @param last - index of last item to mergesort
+	 */
 	public void mergeSort(ArrayList<Item> a, int first, int last) {
 		if (last - first < 1) return;
 		mergeSort(a, first, (first + last)/2);

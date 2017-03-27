@@ -61,7 +61,7 @@ public class Item {
 	 * @return item data in string format
 	 */
 	public String toString() {
-		return myId + "         " + myInv;
+		return String.format("%10d", myId) + String.format("%10d", myInv);
 	}
 	
 }

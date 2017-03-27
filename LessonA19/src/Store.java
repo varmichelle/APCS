@@ -60,8 +60,7 @@ public class Store {
 		s += String.format("%10s\n\n", "Inv");
 		for (int i = 0; i < myStore.size(); i++) {
 			s += String.format("%2d", i+1);
-			s += String.format("%10d", myStore.get(i).getId());
-			s += String.format("%10d\n", myStore.get(i).getInv());
+			s += myStore.get(i) + "\n";
 			if ((i+1) % 10 == 0) s += "\n";
 		}
 		return s;

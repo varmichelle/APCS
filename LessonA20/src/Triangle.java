@@ -53,7 +53,13 @@ public class Triangle implements Measurable {
 	
 	@Override
 	public String toString() {
-		return "";
+		String s = "Triangle:\n";
+		s += "\tside1 = " + getSide1() + "\n";
+		s += "\tside2 = " + getSide2() + "\n";
+		s += "\tside3 = " + getSide3() + "\n";
+		s += "\tperimeter = " + getPerimeter() + "\n";
+		s += "\tarea = " + getArea() + "\n";
+		return s;
 	}
 
 }

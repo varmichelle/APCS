@@ -36,7 +36,11 @@ public class Circle implements Measurable {
 	
 	@Override
 	public String toString() {
-		return "";
+		String s = "Circle:\n";
+		s += "\tradius = " + getRadius() + "\n";
+		s += "\tcircumference = " + getPerimeter() + "\n";
+		s += "\tarea = " + getArea() + "\n";
+		return s;
 	}
 	
 }

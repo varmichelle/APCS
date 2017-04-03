@@ -43,7 +43,12 @@ public class Rectangle implements Measurable {
 	
 	@Override
 	public String toString() {
-		return "";
+		String s = "Rectangle:\n";
+		s += "\tlength = " + getLength() + "\n";
+		s += "\twidth = " + getWidth() + "\n";
+		s += "\tperimeter = " + getPerimeter() + "\n";
+		s += "\tarea = " + getArea() + "\n";
+		return s;
 	}
 
 }

@@ -15,12 +15,12 @@ public class SingingRectangle extends Rectangle {
 	@Override
 	public String toString() {
 		String song = "Rectangle song:\n";
-		song += "I'm a rectangle\n";
-		song += "You can see.\n";
-		song += "I have four sides.\n";
-		song += "Count with me.\n";
-		song += "2 are short and 2 are long.\n";
-		song += "Come along and sing my song.";
+		song += "\tI'm a rectangle.\n";
+		song += "\tYou can see.\n";
+		song += "\tI have four sides.\n";
+		song += "\tCount with me\n";
+		song += "\t2 are short and 2 are long.\n";
+		song += "\tCome along and sing my song.\n";
 		return super.toString() + song;
 	}
 	

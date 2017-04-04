@@ -8,10 +8,19 @@
 
 public class SingingRectangle extends Rectangle {
 
+	/**
+	 * Constructor to initialize dimensions of singing rectangle
+	 * @param l - length
+	 * @param w - width
+	 */
 	public SingingRectangle(double l, double w) {
 		super(l, w);
 	}
 
+	/**
+	 * Return data in string format
+	 * @return data
+	 */
 	@Override
 	public String toString() {
 		String song = "Rectangle song:\n";

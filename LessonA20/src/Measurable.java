@@ -8,13 +8,22 @@
 
 public interface Measurable {
 
-	// returns the perimeter
+	/**
+	 * Get Perimeter
+	 * @return perimeter
+	 */
 	public double getPerimeter();
 	
-	// returns the area
+	/**
+	 * Get Area
+	 * @return area
+	 */
 	public double getArea();
 	
-	// returns the dimensions, perimeter, and area as a String
+	/**
+	 * Return data in string format
+	 * @return data
+	 */
 	public String toString();
 	
 }

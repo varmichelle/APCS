@@ -4,8 +4,8 @@ public class Visit {
 	
 	private Customer customer;
 	private Date date;
-	private double serviceExpense; //expense after discount
-	private double productExpense; //expense after discount
+	private double serviceExpense; // expense after discount
+	private double productExpense; // expense after discount
 	
 	public Visit(Customer c, Date d, double sExpense, double pExpense) {
 		customer = c;

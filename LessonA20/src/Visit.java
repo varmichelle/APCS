@@ -1,5 +1,13 @@
 import java.util.Date;
 
+/**
+ * 
+ * Class Visit - simulates a visit to purchase a product or service
+ * @author Michelle Li
+ * Period 1
+ *
+ */
+
 public class Visit {
 	
 	private Customer customer;

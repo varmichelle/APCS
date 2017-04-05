@@ -59,7 +59,7 @@ public abstract class Customer {
 	}
 	
 	public String toString() {
-		return getName() + "\n" + getMemberType();
+		return "customer: " + getName() + "\nMembership type: " + getMemberType() + "\n";
 	}
 	
 }

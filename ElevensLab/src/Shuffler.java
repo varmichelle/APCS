@@ -163,6 +163,7 @@ public class Shuffler {
 			shuffled[k] = values[j];
 			k += 2;
 		}
+		for (int i = 0; i < values.length; i++) values[i] = shuffled[i];
 	}
 
 	/**

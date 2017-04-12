@@ -32,12 +32,6 @@ public class Deck {
 	 *            is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-		String[] ranksArray = {"jack", "queen", "king"};
-		ranks = ranksArray;
-		String[] suitsArray = {"blue", "red"};
-		suits = suitsArray;
-		int[] valuesArray = {11, 12, 13};
-		values = valuesArray;
 		for (int i = 0; i <= ranks.length - 1; i++) {
 			for (int j = 0; j <= suits.length - 1; j++) {
 				cards.add(new Card(ranks[i], suits[j], values[i]));
@@ -71,7 +65,14 @@ public class Deck {
 	 */
 	public void shuffle() {
 		Random rand = new Random(20);
+		size = cards.size();
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		for (int k = size - 1; k >= 1; k--) {
+			int n = rand.nextInt(k+1);
+			Card temp = cards.get(k);
+			cards.set(k, cards.get(n));
+			cards.set(n, temp);
+		}
 	}
 
 	/**
